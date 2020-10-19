@@ -2,17 +2,23 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存 | Gridea</title>
+<title>👨‍💻全栈-树莓派安装 Ubuntu 修改 root 密码 | Gridea</title>
 <link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1603121463561">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存 | Gridea - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="👨‍💻全栈-树莓派安装 Ubuntu 修改 root 密码 | Gridea - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。
-近期写了为了调试而 关闭 PHP 缓存的方法，测试环境关..." />
+    <meta name="description" content="给 root 账户设置密码
+sudo passwd root
+切换 root 账号
+su root
+
+输入密码，正常切换 root 账户。
+即可。
+..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -75,47 +81,27 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存
+              👨‍💻全栈-树莓派安装 Ubuntu 修改 root 密码
             </h2>
             <div class="post-info">
               <span>
-                2020-03-11
+                2020-02-28
               </span>
               <span>
-                2 min read
+                1 min read
               </span>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。</p>
-<p>近期写了为了调试而 关闭 PHP 缓存的方法，测试环境关闭了之后，效率果然快好多，最起码不用老去手删，或者干等着。</p>
-<p>前端 CSS 和 JS 的调试也同样会产生缓存，但这些都是生成在本地的，也是手动删除，每次那个心累。</p>
-<p><strong>解决问题</strong></p>
-<p>前端页面调试过程中 CSS 和 JS 减少刷新缓存的次数</p>
-<h4 id="解决办法">解决办法</h4>
-<p><strong>调试环境里</strong>，一般使用实时地 CSS 、JS 文件名加随机参数实现，让浏览器实时拉取「全新不同」的 css 文件，格式类似：style.css?time=0.4532025633957022</p>
-<p>CSS 文件</p>
-<pre><code class="language-js">&lt;script&gt;
-        document.write(&quot;&lt;link rel='stylesheet' href='./src/styles/main.css?time=&quot;+Math.random()+&quot;'&gt;&quot;);
-&lt;/script&gt;
-</code></pre>
-<p>JS文件</p>
-<pre><code class="language-js">&lt;script&gt;
-        document.write(&quot;&lt;script type='text/javascript' src='./src/scripts/video.js?time=&quot;+Math.random()+&quot;'&gt;&lt;/&quot;+&quot;script&quot;+&quot;&gt;&quot;)
- &lt;/script&gt;
-</code></pre>
-<p>这样就可以实时加载最新的 CSS、JS 文件了👌。</p>
-<p>再也不用老按快捷键了~~</p>
-<p><strong>另外生产环境里</strong>，CSS 、JS 文件后面带一个版本号之类的，就好可追溯调试也方便识别。</p>
-<p>格式类似：style.css?v=6.2.1.822</p>
-<blockquote>
-<p>参考文章</p>
-</blockquote>
-<blockquote>
-<p><a href="https://blog.csdn.net/hongyu799/article/details/91489893">解决每次上线更新文件需要手动清除缓存的问题-------js 、css自动清除浏览器缓存方法</a></p>
-</blockquote>
+                <h3 id="给-root-账户设置密码">给 root 账户设置密码</h3>
+<p><code>sudo passwd root</code></p>
+<h3 id="切换-root-账号">切换 root 账号</h3>
+<p><code>su root</code></p>
+<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/lmWzd3.png" alt="lmWzd3" loading="lazy"></figure>
+<p>输入密码，正常切换 root 账户。<br>
+即可。</p>
 
               </div>
               <div class="toc-container">
@@ -124,11 +110,8 @@
 <ul>
 <li>
 <ul>
-<li>
-<ul>
-<li><a href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95">解决办法</a></li>
-</ul>
-</li>
+<li><a href="#%E7%BB%99-root-%E8%B4%A6%E6%88%B7%E8%AE%BE%E7%BD%AE%E5%AF%86%E7%A0%81">给 root 账户设置密码</a></li>
+<li><a href="#%E5%88%87%E6%8D%A2-root-%E8%B4%A6%E5%8F%B7">切换 root 账号</a></li>
 </ul>
 </li>
 </ul>
@@ -143,9 +126,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://blog.boyso.com.cn/post/php opcache reset/">
+            <a href="https://blog.boyso.com.cn/post/qiniutuku/">
               <h3 class="post-title">
-                👨‍💻全栈-关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下&#34;
+                👨‍💻全栈-七牛云文件存储自动分配的 free 域名有坑
               </h3>
             </a>
           </div>

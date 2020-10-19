@@ -2,17 +2,18 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存 | Gridea</title>
+<title>👨‍💻全栈-关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下&#34; | Gridea</title>
 <link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1603121463561">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存 | Gridea - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="👨‍💻全栈-关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下&#34; | Gridea - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。
-近期写了为了调试而 关闭 PHP 缓存的方法，测试环境关..." />
+    <meta name="description" content="🙂 最近小项目使用 thinkphp 框架，整体进度还算顺利，但就是感觉缓存太久，前端改好后要等2分钟左右才能看效果，试过手动删除：网站目录下 Cache 里生成的文件，效果不大。
+思考
+这次测试环境使用 Parallels 开个 Cen..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -75,11 +76,11 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存
+              👨‍💻全栈-关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下&#34;
             </h2>
             <div class="post-info">
               <span>
-                2020-03-11
+                2020-03-10
               </span>
               <span>
                 2 min read
@@ -89,33 +90,38 @@
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。</p>
-<p>近期写了为了调试而 关闭 PHP 缓存的方法，测试环境关闭了之后，效率果然快好多，最起码不用老去手删，或者干等着。</p>
-<p>前端 CSS 和 JS 的调试也同样会产生缓存，但这些都是生成在本地的，也是手动删除，每次那个心累。</p>
-<p><strong>解决问题</strong></p>
-<p>前端页面调试过程中 CSS 和 JS 减少刷新缓存的次数</p>
-<h4 id="解决办法">解决办法</h4>
-<p><strong>调试环境里</strong>，一般使用实时地 CSS 、JS 文件名加随机参数实现，让浏览器实时拉取「全新不同」的 css 文件，格式类似：style.css?time=0.4532025633957022</p>
-<p>CSS 文件</p>
-<pre><code class="language-js">&lt;script&gt;
-        document.write(&quot;&lt;link rel='stylesheet' href='./src/styles/main.css?time=&quot;+Math.random()+&quot;'&gt;&quot;);
-&lt;/script&gt;
-</code></pre>
-<p>JS文件</p>
-<pre><code class="language-js">&lt;script&gt;
-        document.write(&quot;&lt;script type='text/javascript' src='./src/scripts/video.js?time=&quot;+Math.random()+&quot;'&gt;&lt;/&quot;+&quot;script&quot;+&quot;&gt;&quot;)
- &lt;/script&gt;
-</code></pre>
-<p>这样就可以实时加载最新的 CSS、JS 文件了👌。</p>
-<p>再也不用老按快捷键了~~</p>
-<p><strong>另外生产环境里</strong>，CSS 、JS 文件后面带一个版本号之类的，就好可追溯调试也方便识别。</p>
-<p>格式类似：style.css?v=6.2.1.822</p>
-<blockquote>
-<p>参考文章</p>
-</blockquote>
-<blockquote>
-<p><a href="https://blog.csdn.net/hongyu799/article/details/91489893">解决每次上线更新文件需要手动清除缓存的问题-------js 、css自动清除浏览器缓存方法</a></p>
-</blockquote>
+                <p>🙂 最近小项目使用 thinkphp 框架，整体进度还算顺利，但就是感觉缓存太久，前端改好后要等2分钟左右才能看效果，试过手动删除：网站目录下 Cache 里生成的文件，效果不大。</p>
+<h4 id="思考">思考</h4>
+<p>这次测试环境使用 Parallels 开个 Centos，PHP环境直接使用 Oneinstack 进行部署。</p>
+<p>考虑到简化流程，可以直接改测试环境的代码，把 Centos 上的网站目录通过开启 SMB 服务，本地直接修改。</p>
+<p>考虑到减少服务器性能的消耗，缓存技术是相当重要的保障功能，把数据内容缓存成静态文件，让重复需求内容的用户客户端拉取缓存访问即可，提高效率，减少查询数据库。<br>
+而我现在只是测试环境，也只有我一个人消耗性能而已，就先把 PHP 的缓存关掉好了。</p>
+<p>由于使用的是 oneinstack，很多服务都集成好了，真棒，新手最爱。</p>
+<h4 id="解决方法">解决方法</h4>
+<h5 id="1修改opcache配置文件">1.修改opcache配置文件</h5>
+<p><code>$ vim /usr/local/php/etc/php.d/02-opcache.ini</code></p>
+<h5 id="2关闭opcache">2.关闭opcache</h5>
+<p>把以下配置关闭，都改成0</p>
+<p><code>opcache.enable = 1; opcache.enable_cli= 1;</code></p>
+<p>变成以下<br>
+<code>opcache.enable = 0; opcache.enable_cli= 0;</code></p>
+<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/9KkEOh.png" alt="9KkEOh" loading="lazy"></figure>
+<h5 id="3-从-oneinstack-卸载-php-composer">3. 从 oneinstack 卸载 PHP Composer</h5>
+<p>ssh 登入服务器，进入 oneinstack 的安装目录</p>
+<p>使用 <code>./addons.sh</code>  添/删组件命令</p>
+<p>选择删除 PHP Composer</p>
+<figure data-type="image" tabindex="2"><img src="http://img.1bz.net/uPic/DDzpx4.png" alt="DDzpx4" loading="lazy"></figure>
+<ol start="4">
+<li>
+<p>强制Reset 刷新PHP的缓存</p>
+<p>由于oneinstack 里带了web 探针及 面板，访问 服务器 ip 地址就能访问了</p>
+<figure data-type="image" tabindex="3"><img src="http://img.1bz.net/uPic/ijKv2i.png" alt="ijKv2i" loading="lazy"></figure>
+<p>请直接按下这个充满肥仔快乐的 <strong>Reset</strong> 按钮吧😎</p>
+<figure data-type="image" tabindex="4"><img src="http://img.1bz.net/uPic/6LDE6L.png" alt="6LDE6L" loading="lazy"></figure>
+</li>
+</ol>
+<p>最近得抽时间再把PHP的教程刷一下，得找些项目多练手，强化代码的肌肉记忆才行哈。</p>
+<p>参考文章**</p>
 
               </div>
               <div class="toc-container">
@@ -126,7 +132,14 @@
 <ul>
 <li>
 <ul>
-<li><a href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95">解决办法</a></li>
+<li><a href="#%E6%80%9D%E8%80%83">思考</a></li>
+<li><a href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95">解决方法</a>
+<ul>
+<li><a href="#1%E4%BF%AE%E6%94%B9opcache%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">1.修改opcache配置文件</a></li>
+<li><a href="#2%E5%85%B3%E9%97%ADopcache">2.关闭opcache</a></li>
+<li><a href="#3-%E4%BB%8E-oneinstack-%E5%8D%B8%E8%BD%BD-php-composer">3. 从 oneinstack 卸载 PHP Composer</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -143,9 +156,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://blog.boyso.com.cn/post/php opcache reset/">
+            <a href="https://blog.boyso.com.cn/post/git gitignore/">
               <h3 class="post-title">
-                👨‍💻全栈-关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下&#34;
+                👨‍💻全栈-通过创建 Gitignore 规则，让Git在提交时自动忽略某些文件和文件对象
               </h3>
             </a>
           </div>

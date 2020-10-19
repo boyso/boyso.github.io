@@ -2,17 +2,18 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存 | Gridea</title>
+<title>👨‍💻全栈-七牛云文件存储自动分配的 free 域名有坑 | Gridea</title>
 <link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1603121463561">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存 | Gridea - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="👨‍💻全栈-七牛云文件存储自动分配的 free 域名有坑 | Gridea - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。
-近期写了为了调试而 关闭 PHP 缓存的方法，测试环境关..." />
+    <meta name="description" content="我使用的是 uPic + 七牛云 做图床使用，方便自动上传剪贴板、本地图片文件到七牛云上存储，并且生成 URL 地址，实时访问查看，主要是用在写博客使用了。
+之前估计使用的是七牛云免费分配的子域名，免费的嘛，我也没在意，最近也少写东西。
+今..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -75,11 +76,11 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存
+              👨‍💻全栈-七牛云文件存储自动分配的 free 域名有坑
             </h2>
             <div class="post-info">
               <span>
-                2020-03-11
+                2020-02-28
               </span>
               <span>
                 2 min read
@@ -89,48 +90,34 @@
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。</p>
-<p>近期写了为了调试而 关闭 PHP 缓存的方法，测试环境关闭了之后，效率果然快好多，最起码不用老去手删，或者干等着。</p>
-<p>前端 CSS 和 JS 的调试也同样会产生缓存，但这些都是生成在本地的，也是手动删除，每次那个心累。</p>
-<p><strong>解决问题</strong></p>
-<p>前端页面调试过程中 CSS 和 JS 减少刷新缓存的次数</p>
-<h4 id="解决办法">解决办法</h4>
-<p><strong>调试环境里</strong>，一般使用实时地 CSS 、JS 文件名加随机参数实现，让浏览器实时拉取「全新不同」的 css 文件，格式类似：style.css?time=0.4532025633957022</p>
-<p>CSS 文件</p>
-<pre><code class="language-js">&lt;script&gt;
-        document.write(&quot;&lt;link rel='stylesheet' href='./src/styles/main.css?time=&quot;+Math.random()+&quot;'&gt;&quot;);
-&lt;/script&gt;
-</code></pre>
-<p>JS文件</p>
-<pre><code class="language-js">&lt;script&gt;
-        document.write(&quot;&lt;script type='text/javascript' src='./src/scripts/video.js?time=&quot;+Math.random()+&quot;'&gt;&lt;/&quot;+&quot;script&quot;+&quot;&gt;&quot;)
- &lt;/script&gt;
-</code></pre>
-<p>这样就可以实时加载最新的 CSS、JS 文件了👌。</p>
-<p>再也不用老按快捷键了~~</p>
-<p><strong>另外生产环境里</strong>，CSS 、JS 文件后面带一个版本号之类的，就好可追溯调试也方便识别。</p>
-<p>格式类似：style.css?v=6.2.1.822</p>
-<blockquote>
-<p>参考文章</p>
-</blockquote>
-<blockquote>
-<p><a href="https://blog.csdn.net/hongyu799/article/details/91489893">解决每次上线更新文件需要手动清除缓存的问题-------js 、css自动清除浏览器缓存方法</a></p>
-</blockquote>
+                <p>我使用的是 uPic + 七牛云 做图床使用，方便自动上传剪贴板、本地图片文件到七牛云上存储，并且生成 URL 地址，实时访问查看，主要是用在写博客使用了。</p>
+<p>之前估计使用的是七牛云免费分配的子域名，免费的嘛，我也没在意，最近也少写东西。</p>
+<p>今天写 blog ，发现图片都无法显示了，刚开始以为是图床的访问权限问题，搜索一圈，才知道这算是个新手坑了吧。</p>
+<p>Fine~~~ 😃</p>
+<h2 id="添加域名配置-cname-解析">添加域名，配置 CNAME 解析</h2>
+<p>七牛云提供了域名绑定方式，即使用你自己的域名进行 CNAME 转发访问。<br>
+当然这样应该就会产生 CDN 的流量费用了(测试一段时间看看，反正现在博客访问量少)</p>
+<p>1、进行新版七牛对象存储里<br>
+<img src="http://img.1bz.net/uPic/t4DZjF.png" alt="t4DZjF" loading="lazy"><br>
+2、绑定加速域名<br>
+<img src="http://img.1bz.net/uPic/gxqMzk.png" alt="gxqMzk" loading="lazy"><br>
+3、使用自己的域名（务必是有备案的)<br>
+我使用自己的域名 <code>img.1bz.net</code><br>
+<img src="http://img.1bz.net/uPic/rWr16N.png" alt="rWr16N" loading="lazy"><br>
+4、去自己的域名里解析，<br>
+<a href="https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name">七牛云配置 CANME 方法</a></p>
+<h2 id="批量修改图片旧链接">批量修改图片旧链接</h2>
+<p>幸好现在发现这个坑，之前写的东西不多。<br>
+批量把 URL 里对应的域名全修改成 <code>img.1bz.net</code> 即可。</p>
+<p>OJBK~~</p>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95">解决办法</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#%E6%B7%BB%E5%8A%A0%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-cname-%E8%A7%A3%E6%9E%90">添加域名，配置 CNAME 解析</a></li>
+<li><a href="#%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E5%9B%BE%E7%89%87%E6%97%A7%E9%93%BE%E6%8E%A5">批量修改图片旧链接</a></li>
 </ul>
 </li>
 </ul>
@@ -143,9 +130,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://blog.boyso.com.cn/post/php opcache reset/">
+            <a href="https://blog.boyso.com.cn/post/Blog Update Daily/">
               <h3 class="post-title">
-                👨‍💻全栈-关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下&#34;
+                👨‍💻全栈-2020官网更新日记记录
               </h3>
             </a>
           </div>

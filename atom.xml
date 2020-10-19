@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.boyso.com.cn</id>
     <title>Gridea</title>
-    <updated>2020-10-19T15:30:06.310Z</updated>
+    <updated>2020-10-19T15:31:07.405Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.boyso.com.cn"/>
     <link rel="self" href="https://blog.boyso.com.cn/atom.xml"/>
@@ -43,6 +43,185 @@
 <blockquote>
 <p><a href="https://blog.csdn.net/hongyu799/article/details/91489893">解决每次上线更新文件需要手动清除缓存的问题-------js 、css自动清除浏览器缓存方法</a></p>
 </blockquote>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[👨‍💻全栈-关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下"]]></title>
+        <id>https://blog.boyso.com.cn/post/php opcache reset/</id>
+        <link href="https://blog.boyso.com.cn/post/php opcache reset/">
+        </link>
+        <updated>2020-03-10T04:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>🙂 最近小项目使用 thinkphp 框架，整体进度还算顺利，但就是感觉缓存太久，前端改好后要等2分钟左右才能看效果，试过手动删除：网站目录下 Cache 里生成的文件，效果不大。</p>
+<h4 id="思考">思考</h4>
+<p>这次测试环境使用 Parallels 开个 Centos，PHP环境直接使用 Oneinstack 进行部署。</p>
+<p>考虑到简化流程，可以直接改测试环境的代码，把 Centos 上的网站目录通过开启 SMB 服务，本地直接修改。</p>
+<p>考虑到减少服务器性能的消耗，缓存技术是相当重要的保障功能，把数据内容缓存成静态文件，让重复需求内容的用户客户端拉取缓存访问即可，提高效率，减少查询数据库。<br>
+而我现在只是测试环境，也只有我一个人消耗性能而已，就先把 PHP 的缓存关掉好了。</p>
+<p>由于使用的是 oneinstack，很多服务都集成好了，真棒，新手最爱。</p>
+<h4 id="解决方法">解决方法</h4>
+<h5 id="1修改opcache配置文件">1.修改opcache配置文件</h5>
+<p><code>$ vim /usr/local/php/etc/php.d/02-opcache.ini</code></p>
+<h5 id="2关闭opcache">2.关闭opcache</h5>
+<p>把以下配置关闭，都改成0</p>
+<p><code>opcache.enable = 1; opcache.enable_cli= 1;</code></p>
+<p>变成以下<br>
+<code>opcache.enable = 0; opcache.enable_cli= 0;</code></p>
+<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/9KkEOh.png" alt="9KkEOh" loading="lazy"></figure>
+<h5 id="3-从-oneinstack-卸载-php-composer">3. 从 oneinstack 卸载 PHP Composer</h5>
+<p>ssh 登入服务器，进入 oneinstack 的安装目录</p>
+<p>使用 <code>./addons.sh</code>  添/删组件命令</p>
+<p>选择删除 PHP Composer</p>
+<figure data-type="image" tabindex="2"><img src="http://img.1bz.net/uPic/DDzpx4.png" alt="DDzpx4" loading="lazy"></figure>
+<ol start="4">
+<li>
+<p>强制Reset 刷新PHP的缓存</p>
+<p>由于oneinstack 里带了web 探针及 面板，访问 服务器 ip 地址就能访问了</p>
+<figure data-type="image" tabindex="3"><img src="http://img.1bz.net/uPic/ijKv2i.png" alt="ijKv2i" loading="lazy"></figure>
+<p>请直接按下这个充满肥仔快乐的 <strong>Reset</strong> 按钮吧😎</p>
+<figure data-type="image" tabindex="4"><img src="http://img.1bz.net/uPic/6LDE6L.png" alt="6LDE6L" loading="lazy"></figure>
+</li>
+</ol>
+<p>最近得抽时间再把PHP的教程刷一下，得找些项目多练手，强化代码的肌肉记忆才行哈。</p>
+<p>参考文章**</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[👨‍💻全栈-通过创建 Gitignore 规则，让Git在提交时自动忽略某些文件和文件对象]]></title>
+        <id>https://blog.boyso.com.cn/post/git gitignore/</id>
+        <link href="https://blog.boyso.com.cn/post/git gitignore/">
+        </link>
+        <updated>2020-03-06T11:00:00.000Z</updated>
+        <content type="html"><![CDATA[<p>由于全栈，所以流程都得自己完成，但测试环境里有些文件只限本地使用的，不能也发布到生产环境里去，不然导致测试数据污染生产环境的情况。</p>
+<p>例如缓存 Cache 目录，本地有本地的 Cache ，生产有生的Cache，不应覆盖，估计在公司里程序员就会被祭天了吧</p>
+<p>查看当前会被提交的目录有哪些!</p>
+<p><code>git status</code></p>
+<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/PIXx7n.png" alt="PIXx7n" loading="lazy"></figure>
+<h4 id="1-根目录创建的-gitignore-文件">1、根目录创建的 .gitignore 文件</h4>
+<p><code>vi .gitignore</code>或者 <code>touch .gitignore</code>  都可以</p>
+<h4 id="2-写入要忽略提交的文件或者文件夹">2、写入要忽略提交的文件或者文件夹</h4>
+<figure data-type="image" tabindex="2"><img src="http://img.1bz.net/uPic/p0oMW3.png" alt="p0oMW3" loading="lazy"></figure>
+<p>那如果要单独忽略个别文件怎么办？</p>
+<p>可以参考以下规则：</p>
+<pre><code>1. Cache          //忽略这个 Cache 目录
+2. pay.php        //只忽略 pay.php 文件
+3. Cache/*        //忽略 Cache 下的所有文件
+4. images/*.png      //忽略 images 目录下的 .png 文件
+</code></pre>
+<p>3、查看效果</p>
+<p>再使用 <code>git status</code> 查看一下效果</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[👨‍💻全栈-树莓派安装 Ubuntu 修改 root 密码]]></title>
+        <id>https://blog.boyso.com.cn/post/Ubuntu reset root pwd/</id>
+        <link href="https://blog.boyso.com.cn/post/Ubuntu reset root pwd/">
+        </link>
+        <updated>2020-02-28T14:52:00.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="给-root-账户设置密码">给 root 账户设置密码</h3>
+<p><code>sudo passwd root</code></p>
+<h3 id="切换-root-账号">切换 root 账号</h3>
+<p><code>su root</code></p>
+<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/lmWzd3.png" alt="lmWzd3" loading="lazy"></figure>
+<p>输入密码，正常切换 root 账户。<br>
+即可。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[👨‍💻全栈-七牛云文件存储自动分配的 free 域名有坑]]></title>
+        <id>https://blog.boyso.com.cn/post/qiniutuku/</id>
+        <link href="https://blog.boyso.com.cn/post/qiniutuku/">
+        </link>
+        <updated>2020-02-28T14:52:00.000Z</updated>
+        <content type="html"><![CDATA[<p>我使用的是 uPic + 七牛云 做图床使用，方便自动上传剪贴板、本地图片文件到七牛云上存储，并且生成 URL 地址，实时访问查看，主要是用在写博客使用了。</p>
+<p>之前估计使用的是七牛云免费分配的子域名，免费的嘛，我也没在意，最近也少写东西。</p>
+<p>今天写 blog ，发现图片都无法显示了，刚开始以为是图床的访问权限问题，搜索一圈，才知道这算是个新手坑了吧。</p>
+<p>Fine~~~ 😃</p>
+<h2 id="添加域名配置-cname-解析">添加域名，配置 CNAME 解析</h2>
+<p>七牛云提供了域名绑定方式，即使用你自己的域名进行 CNAME 转发访问。<br>
+当然这样应该就会产生 CDN 的流量费用了(测试一段时间看看，反正现在博客访问量少)</p>
+<p>1、进行新版七牛对象存储里<br>
+<img src="http://img.1bz.net/uPic/t4DZjF.png" alt="t4DZjF" loading="lazy"><br>
+2、绑定加速域名<br>
+<img src="http://img.1bz.net/uPic/gxqMzk.png" alt="gxqMzk" loading="lazy"><br>
+3、使用自己的域名（务必是有备案的)<br>
+我使用自己的域名 <code>img.1bz.net</code><br>
+<img src="http://img.1bz.net/uPic/rWr16N.png" alt="rWr16N" loading="lazy"><br>
+4、去自己的域名里解析，<br>
+<a href="https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name">七牛云配置 CANME 方法</a></p>
+<h2 id="批量修改图片旧链接">批量修改图片旧链接</h2>
+<p>幸好现在发现这个坑，之前写的东西不多。<br>
+批量把 URL 里对应的域名全修改成 <code>img.1bz.net</code> 即可。</p>
+<p>OJBK~~</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[👨‍💻全栈-2020官网更新日记记录]]></title>
+        <id>https://blog.boyso.com.cn/post/Blog Update Daily/</id>
+        <link href="https://blog.boyso.com.cn/post/Blog Update Daily/">
+        </link>
+        <updated>2020-01-20T11:00:00.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="1-20日">1-20日</h3>
+<ul>
+<li>更新 侧栏菜单样式</li>
+<li>更新 首页客户案例的CSS 结构，之前的结构太松散。</li>
+<li>更新 文章页 的其他文章 的CSS样式</li>
+<li>更新 文章页 正文底部宽松度</li>
+<li>重新把客户列表从图片写成 Html 结构，同时针对 H5 调整效果</li>
+</ul>
+<p>心得：到目前为止，已经大致掌握了 Media 的使用。对 Hexo 的模板基本可以搞出来了，就还是觉得HEXO的模板分离不是很友好，太散了。（好奇一般前端工程师是先写好静态模板后，再移植到 Hexo 里的吧，Swig 引擎还没搞熟。</p>
+<h3 id="1-19日">1-19日</h3>
+<p>今天生日，奔波广州-中山两地跑，以至于20日凌晨才开车加到广州，真是要命。</p>
+<h3 id="1-18日">1-18日</h3>
+<ul>
+<li>调整了页面的样式</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[👨‍💻全栈-想写blog，所以需要一个顺手的图床-uPic/iPic + 七牛云]]></title>
+        <id>https://blog.boyso.com.cn/post/write blog by uPic and markdown/</id>
+        <link href="https://blog.boyso.com.cn/post/write blog by uPic and markdown/">
+        </link>
+        <updated>2020-01-07T16:00:00.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="产品需求">产品需求</h3>
+<p>自己想用 Markdown 好好写博客，所以我需要一个图床，功能需要能方便的通过 <strong>截图</strong>，<strong>复制</strong>，<strong>上传</strong> 操作并转化成可直接使用的<strong>URL</strong>。</p>
+<p>马上想到了 <a href="https://toolinbox.net/iPic/">iPic</a>，以前有用过，很方便，简单。但可惜的是... 穷。于是我又找到了 <a href="https://blog.svend.cc/upic/">uPic</a>,开源免费的图床，由 <a href="https://svend.cc/">Svend</a> 开发。<br>
+<img src="http://img.1bz.net/uPic/HxdLYf.jpg" width="30%"></p>
+<h3 id="支持的功能">支持的功能</h3>
+<h4 id="选择文件上传">🖥 选择文件上传</h4>
+<p>‌从Finder选择文件上传。可设置全局快捷键`<br>
+<img src="http://img.1bz.net/uPic/selectFile.gif" alt="selectFile" loading="lazy"></p>
+<h4 id="️-复制文件上传">⌨️ 复制文件上传</h4>
+<p>上传已拷贝到剪切板的文件。可设置全局快捷键<br>
+<img src="http://img.1bz.net/uPic/pasteboard.gif" alt="pasteboard" loading="lazy"></p>
+<h4 id="截图上传">📸 截图上传</h4>
+<p>直接拉框截图上传。<code>可设置全局快捷键</code><br>
+<img src="http://img.1bz.net/uPic/screenshot.gif" alt="screenshot" loading="lazy"></p>
+<h4 id="拖拽本地文件上传">🖱 拖拽本地文件上传</h4>
+<p>拖拽文件到状态栏上传<br>
+<img src="http://img.1bz.net/uPic/dragFile.gif" alt="dragFile" loading="lazy"></p>
+<h4 id="finder-中右键上传">📂 Finder 中右键上传</h4>
+<p>右击文件上传<br>
+<img src="http://img.1bz.net/uPic/contextmenu.gif" alt="contextmenu" loading="lazy"></p>
+<h4 id="️-命令行上传">⌨️ 命令行上传</h4>
+<p>通过执行命令调用 uPic 上传文件<br>
+<img src="http://img.1bz.net/uPic/cli.gif" alt="cli" loading="lazy"></p>
+<h4 id="其他图床配置">其他图床配置</h4>
+<ul>
+<li><a href="https://blog.svend.cc/upic/tutorials/qiniu_kodo/">uPic 图床配置教程 - 七牛云</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/weibo">uPic 图床配置教程 - 微博</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/upyun_uss">uPic 图床配置教程 - 又拍云</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/qiniu_kodo">uPic 图床配置教程 - 七牛云</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/aliyun_oss">uPic 图床配置教程 - 阿里云</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/tencent_cos">uPic 图床配置教程 - 腾讯云</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/baidu_bos">uPic 图床配置教程 - 百度云</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/amazon_s3">uPic 图床配置教程 - Amazon S3</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/github">uPic 图床配置教程 - Github</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/gitee">uPic 图床配置教程 - 码云(Gitee)</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/imgur">uPic 图床配置教程 - Imgur</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/custom">uPic 图床配置教程 - 自定义上传</a></li>
+</ul>
+<p>That is Great!</p>
 ]]></content>
     </entry>
 </feed>
