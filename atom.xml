@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.boyso.com.cn</id>
     <title>Gridea</title>
-    <updated>2020-10-19T15:23:06.100Z</updated>
+    <updated>2020-10-19T15:28:25.650Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.boyso.com.cn"/>
     <link rel="self" href="https://blog.boyso.com.cn/atom.xml"/>
@@ -11,35 +11,38 @@
     <icon>https://blog.boyso.com.cn/favicon.ico</icon>
     <rights>All rights reserved 2020, Gridea</rights>
     <entry>
-        <title type="html"><![CDATA[Hello Gridea]]></title>
-        <id>https://blog.boyso.com.cn/post/hello-gridea/</id>
-        <link href="https://blog.boyso.com.cn/post/hello-gridea/">
+        <title type="html"><![CDATA[👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存]]></title>
+        <id>https://blog.boyso.com.cn/post/Front Cache/</id>
+        <link href="https://blog.boyso.com.cn/post/Front Cache/">
         </link>
-        <updated>2018-12-11T16:00:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>👏  欢迎使用 <strong>Gridea</strong> ！<br>
-✍️  <strong>Gridea</strong> 一个静态博客写作客户端。你可以用它来记录你的生活、心情、知识、笔记、创意... ...</p>
-<!-- more -->
-<p><a href="https://github.com/getgridea/gridea">Github</a><br>
-<a href="https://gridea.dev/">Gridea 主页</a><br>
-<a href="http://fehey.com/">示例网站</a></p>
-<h2 id="特性">特性👇</h2>
-<p>📝  你可以使用最酷的 <strong>Markdown</strong> 语法，进行快速创作</p>
-<p>🌉  你可以给文章配上精美的封面图和在文章任意位置插入图片</p>
-<p>🏷️  你可以对文章进行标签分组</p>
-<p>📋  你可以自定义菜单，甚至可以创建外部链接菜单</p>
-<p>💻  你可以在 <strong>Windows</strong>，<strong>MacOS</strong> 或 <strong>Linux</strong> 设备上使用此客户端</p>
-<p>🌎  你可以使用 <strong>𝖦𝗂𝗍𝗁𝗎𝖻 𝖯𝖺𝗀𝖾𝗌</strong> 或 <strong>Coding Pages</strong> 向世界展示，未来将支持更多平台</p>
-<p>💬  你可以进行简单的配置，接入 <a href="https://github.com/gitalk/gitalk">Gitalk</a> 或 <a href="https://github.com/SukkaW/DisqusJS">DisqusJS</a> 评论系统</p>
-<p>🇬🇧  你可以使用<strong>中文简体</strong>或<strong>英语</strong></p>
-<p>🌁  你可以任意使用应用内默认主题或任意第三方主题，强大的主题自定义能力</p>
-<p>🖥  你可以自定义源文件夹，利用 OneDrive、百度网盘、iCloud、Dropbox 等进行多设备同步</p>
-<p>🌱 当然 <strong>Gridea</strong> 还很年轻，有很多不足，但请相信，它会不停向前 🏃</p>
-<p>未来，它一定会成为你离不开的伙伴</p>
-<p>尽情发挥你的才华吧！</p>
-<p>😘 Enjoy~</p>
+        <updated>2020-03-11T07:14:00.000Z</updated>
+        <content type="html"><![CDATA[<p>在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。</p>
+<p>近期写了为了调试而 关闭 PHP 缓存的方法，测试环境关闭了之后，效率果然快好多，最起码不用老去手删，或者干等着。</p>
+<p>前端 CSS 和 JS 的调试也同样会产生缓存，但这些都是生成在本地的，也是手动删除，每次那个心累。</p>
+<p><strong>解决问题</strong></p>
+<p>前端页面调试过程中 CSS 和 JS 减少刷新缓存的次数</p>
+<h4 id="解决办法">解决办法</h4>
+<p><strong>调试环境里</strong>，一般使用实时地 CSS 、JS 文件名加随机参数实现，让浏览器实时拉取「全新不同」的 css 文件，格式类似：style.css?time=0.4532025633957022</p>
+<p>CSS 文件</p>
+<pre><code class="language-js">&lt;script&gt;
+        document.write(&quot;&lt;link rel='stylesheet' href='./src/styles/main.css?time=&quot;+Math.random()+&quot;'&gt;&quot;);
+&lt;/script&gt;
+</code></pre>
+<p>JS文件</p>
+<pre><code class="language-js">&lt;script&gt;
+        document.write(&quot;&lt;script type='text/javascript' src='./src/scripts/video.js?time=&quot;+Math.random()+&quot;'&gt;&lt;/&quot;+&quot;script&quot;+&quot;&gt;&quot;)
+ &lt;/script&gt;
+</code></pre>
+<p>这样就可以实时加载最新的 CSS、JS 文件了👌。</p>
+<p>再也不用老按快捷键了~~</p>
+<p><strong>另外生产环境里</strong>，CSS 、JS 文件后面带一个版本号之类的，就好可追溯调试也方便识别。</p>
+<p>格式类似：style.css?v=6.2.1.822</p>
+<blockquote>
+<p>参考文章</p>
+</blockquote>
+<blockquote>
+<p><a href="https://blog.csdn.net/hongyu799/article/details/91489893">解决每次上线更新文件需要手动清除缓存的问题-------js 、css自动清除浏览器缓存方法</a></p>
+</blockquote>
 ]]></content>
     </entry>
 </feed>
