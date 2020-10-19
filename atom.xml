@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.boyso.com.cn</id>
     <title>BOYSO blog</title>
-    <updated>2020-10-19T15:35:56.824Z</updated>
+    <updated>2020-10-19T16:58:59.097Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.boyso.com.cn"/>
     <link rel="self" href="https://blog.boyso.com.cn/atom.xml"/>
@@ -11,12 +11,22 @@
     <icon>https://blog.boyso.com.cn/favicon.ico</icon>
     <rights>All rights reserved 2020, BOYSO blog</rights>
     <entry>
-        <title type="html"><![CDATA[👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存]]></title>
+        <title type="html"><![CDATA[关于我]]></title>
+        <id>https://blog.boyso.com.cn/post/about/</id>
+        <link href="https://blog.boyso.com.cn/post/about/">
+        </link>
+        <updated>2020-10-19T16:56:06.000Z</updated>
+        <content type="html"><![CDATA[<p>关于我</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[👨‍💻 让前端调试不受本地缓存束缚，实时更新缓存]]></title>
         <id>https://blog.boyso.com.cn/post/Front Cache/</id>
         <link href="https://blog.boyso.com.cn/post/Front Cache/">
         </link>
         <updated>2020-03-11T07:14:00.000Z</updated>
-        <content type="html"><![CDATA[<p>在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。</p>
+        <content type="html"><![CDATA[<!-- more -->
+<p>在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。</p>
 <p>近期写了为了调试而 关闭 PHP 缓存的方法，测试环境关闭了之后，效率果然快好多，最起码不用老去手删，或者干等着。</p>
 <p>前端 CSS 和 JS 的调试也同样会产生缓存，但这些都是生成在本地的，也是手动删除，每次那个心累。</p>
 <p><strong>解决问题</strong></p>

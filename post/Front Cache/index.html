@@ -2,18 +2,19 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存 | BOYSO blog</title>
-<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1603121729795">
+<title>👨‍💻 让前端调试不受本地缓存束缚，实时更新缓存 | BOYSO blog</title>
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1603126734979">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存 | BOYSO blog - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="👨‍💻 让前端调试不受本地缓存束缚，实时更新缓存 | BOYSO blog - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。
-近期写了为了调试而 关闭 PHP 缓存的方法，测试环境关..." />
-    <meta name="keywords" content="" />
+    <meta name="description" content="
+在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。
+近期写了为了调试而 关闭 PHP 缓存的方法，测试环境..." />
+    <meta name="keywords" content="全栈" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -22,7 +23,7 @@
       <div class="main-content">
         <div class="site-header">
   <a href="https://blog.boyso.com.cn">
-  <img class="avatar" src="https://blog.boyso.com.cn/images/avatar.png?v=1603121729795" alt="">
+  <img class="avatar" src="https://blog.boyso.com.cn/images/avatar.png?v=1603126734979" alt="">
   </a>
   <h1 class="site-title">
     BOYSO blog
@@ -60,9 +61,17 @@
   <div class="social-container">
     
       
+        <a href="https://github.com/boyso" target="_blank">
+          <i class="ri-github-line"></i>
+        </a>
+      
     
       
     
+      
+        <a href="https://weibo.com/appman" target="_blank">
+          <i class="ri-weibo-line"></i>
+        </a>
       
     
       
@@ -75,7 +84,7 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              👨‍💻全栈-让前端调试不受本地缓存束缚，实时更新缓存
+              👨‍💻 让前端调试不受本地缓存束缚，实时更新缓存
             </h2>
             <div class="post-info">
               <span>
@@ -85,11 +94,16 @@
                 2 min read
               </span>
               
+                <a href="https://blog.boyso.com.cn/tag/LxIfcBOs8/" class="post-tag">
+                  # 全栈
+                </a>
+              
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。</p>
+                <!-- more -->
+<p>在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。</p>
 <p>近期写了为了调试而 关闭 PHP 缓存的方法，测试环境关闭了之后，效率果然快好多，最起码不用老去手删，或者干等着。</p>
 <p>前端 CSS 和 JS 的调试也同样会产生缓存，但这些都是生成在本地的，也是手动删除，每次那个心累。</p>
 <p><strong>解决问题</strong></p>
