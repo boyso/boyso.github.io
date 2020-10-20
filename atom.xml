@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.boyso.com.cn</id>
     <title>BOYSO blog</title>
-    <updated>2020-10-19T17:11:47.690Z</updated>
+    <updated>2020-10-20T03:54:38.627Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.boyso.com.cn"/>
     <link rel="self" href="https://blog.boyso.com.cn/atom.xml"/>
@@ -56,7 +56,7 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[👨‍💻全栈-关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下"]]></title>
+        <title type="html"><![CDATA[👨‍💻 关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下" 👨‍💻]]></title>
         <id>https://blog.boyso.com.cn/post/php opcache reset/</id>
         <link href="https://blog.boyso.com.cn/post/php opcache reset/">
         </link>
@@ -96,7 +96,7 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[👨‍💻全栈-通过创建 Gitignore 规则，让Git在提交时自动忽略某些文件和文件对象]]></title>
+        <title type="html"><![CDATA[👨‍💻 通过创建 Gitignore 规则，让Git在提交时自动忽略某些文件和文件对象]]></title>
         <id>https://blog.boyso.com.cn/post/git gitignore/</id>
         <link href="https://blog.boyso.com.cn/post/git gitignore/">
         </link>
@@ -122,7 +122,7 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[👨‍💻全栈-树莓派安装 Ubuntu 修改 root 密码]]></title>
+        <title type="html"><![CDATA[👨‍💻 树莓派安装 Ubuntu 修改 root 密码]]></title>
         <id>https://blog.boyso.com.cn/post/Ubuntu reset root pwd/</id>
         <link href="https://blog.boyso.com.cn/post/Ubuntu reset root pwd/">
         </link>
@@ -137,7 +137,7 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[👨‍💻全栈-七牛云文件存储自动分配的 free 域名有坑]]></title>
+        <title type="html"><![CDATA[👨‍💻 七牛云文件存储自动分配的 free 域名有坑]]></title>
         <id>https://blog.boyso.com.cn/post/qiniutuku/</id>
         <link href="https://blog.boyso.com.cn/post/qiniutuku/">
         </link>
@@ -165,30 +165,7 @@
 ]]></content>
     </entry>
     <entry>
-        <title type="html"><![CDATA[👨‍💻全栈-2020官网更新日记记录]]></title>
-        <id>https://blog.boyso.com.cn/post/Blog Update Daily/</id>
-        <link href="https://blog.boyso.com.cn/post/Blog Update Daily/">
-        </link>
-        <updated>2020-01-20T11:00:00.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="1-20日">1-20日</h3>
-<ul>
-<li>更新 侧栏菜单样式</li>
-<li>更新 首页客户案例的CSS 结构，之前的结构太松散。</li>
-<li>更新 文章页 的其他文章 的CSS样式</li>
-<li>更新 文章页 正文底部宽松度</li>
-<li>重新把客户列表从图片写成 Html 结构，同时针对 H5 调整效果</li>
-</ul>
-<p>心得：到目前为止，已经大致掌握了 Media 的使用。对 Hexo 的模板基本可以搞出来了，就还是觉得HEXO的模板分离不是很友好，太散了。（好奇一般前端工程师是先写好静态模板后，再移植到 Hexo 里的吧，Swig 引擎还没搞熟。</p>
-<h3 id="1-19日">1-19日</h3>
-<p>今天生日，奔波广州-中山两地跑，以至于20日凌晨才开车加到广州，真是要命。</p>
-<h3 id="1-18日">1-18日</h3>
-<ul>
-<li>调整了页面的样式</li>
-</ul>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[👨‍💻全栈-想写blog，所以需要一个顺手的图床-uPic/iPic + 七牛云]]></title>
+        <title type="html"><![CDATA[👨‍💻 想写blog，所以需要一个顺手的图床-uPic/iPic + 七牛云]]></title>
         <id>https://blog.boyso.com.cn/post/write blog by uPic and markdown/</id>
         <link href="https://blog.boyso.com.cn/post/write blog by uPic and markdown/">
         </link>
