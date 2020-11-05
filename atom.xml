@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.boyso.com.cn</id>
     <title>BOYSO</title>
-    <updated>2020-11-05T14:22:54.097Z</updated>
+    <updated>2020-11-05T14:44:20.026Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.boyso.com.cn"/>
     <link rel="self" href="https://blog.boyso.com.cn/atom.xml"/>
@@ -11,12 +11,13 @@
     <icon>https://blog.boyso.com.cn/favicon.ico</icon>
     <rights>All rights reserved 2020, BOYSO</rights>
     <entry>
-        <title type="html"><![CDATA[React 开发历史小笔记]]></title>
+        <title type="html"><![CDATA[React 开发- 发展历史]]></title>
         <id>https://blog.boyso.com.cn/post/react-kai-fa-li-shi-xiao-bi-ji/</id>
         <link href="https://blog.boyso.com.cn/post/react-kai-fa-li-shi-xiao-bi-ji/">
         </link>
         <updated>2020-11-05T14:20:15.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="react-发展历史">React 发展历史</h3>
+        <content type="html"><![CDATA[<p>最近学习React，后续准备把官网用React重写一次哈。</p>
+<h3 id="react-发展历史">React 发展历史</h3>
 <p>2013年，React 发布之初主要是开发Web页面</p>
 <p>2015年，Facebook 推出了 ReactNative,用于开发移动端跨平台;Flutter 也是</p>
 <p>2017年，推出了ReactVR，用于开发虚拟现实Web应用程序。</p>
