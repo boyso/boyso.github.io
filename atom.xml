@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.boyso.com.cn</id>
     <title>BOYSO</title>
-    <updated>2020-11-02T06:28:50.988Z</updated>
+    <updated>2020-11-05T14:22:54.097Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.boyso.com.cn"/>
     <link rel="self" href="https://blog.boyso.com.cn/atom.xml"/>
@@ -10,6 +10,27 @@
     <logo>https://blog.boyso.com.cn/images/avatar.png</logo>
     <icon>https://blog.boyso.com.cn/favicon.ico</icon>
     <rights>All rights reserved 2020, BOYSO</rights>
+    <entry>
+        <title type="html"><![CDATA[React 开发历史小笔记]]></title>
+        <id>https://blog.boyso.com.cn/post/react-kai-fa-li-shi-xiao-bi-ji/</id>
+        <link href="https://blog.boyso.com.cn/post/react-kai-fa-li-shi-xiao-bi-ji/">
+        </link>
+        <updated>2020-11-05T14:20:15.000Z</updated>
+        <content type="html"><![CDATA[<h3 id="react-发展历史">React 发展历史</h3>
+<p>2013年，React 发布之初主要是开发Web页面</p>
+<p>2015年，Facebook 推出了 ReactNative,用于开发移动端跨平台;Flutter 也是</p>
+<p>2017年，推出了ReactVR，用于开发虚拟现实Web应用程序。</p>
+<p>React 由Facebook 来更新与维护，它是大量优秀程序员的思想结晶</p>
+<p>React的流行不仅仅局限于普通开发工程师对它的认可，大量流行的其他框架借鉴React的思想。</p>
+<p>Vue.js 框架设计之初，有很多灵感来源于Angular 和  React。</p>
+<p>包括 Vue3 很多新的特性，也是借鉴和学习了React</p>
+<p>比如 React Hooks 是开创性的新功能（重点）</p>
+<p>Vue Function Based API 学习了React Hooks 的思想</p>
+<p>Flutter 的很多灵感都来自React,来自官网的一段话。</p>
+<p>事实上Flutter 中的widget - Element -RenderObject，对应的就是JSX-虚拟DOM-真实DOM</p>
+<p>React  是前端的先驱者，它总是会引领整个行业的发展</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[让前端调试不受本地缓存束缚，实时更新缓存]]></title>
         <id>https://blog.boyso.com.cn/post/Front Cache/</id>
