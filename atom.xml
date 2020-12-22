@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.boyso.com.cn</id>
     <title>BOYSO</title>
-    <updated>2020-11-06T06:46:38.888Z</updated>
+    <updated>2020-12-22T16:43:22.208Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.boyso.com.cn"/>
     <link rel="self" href="https://blog.boyso.com.cn/atom.xml"/>
@@ -10,6 +10,28 @@
     <logo>https://blog.boyso.com.cn/images/avatar.png</logo>
     <icon>https://blog.boyso.com.cn/favicon.ico</icon>
     <rights>All rights reserved 2020, BOYSO</rights>
+    <entry>
+        <title type="html"><![CDATA[让Behance直接访问]]></title>
+        <id>https://blog.boyso.com.cn/post/rang-behance-zhi-jie-fang-wen/</id>
+        <link href="https://blog.boyso.com.cn/post/rang-behance-zhi-jie-fang-wen/">
+        </link>
+        <updated>2020-12-22T16:38:35.000Z</updated>
+        <content type="html"><![CDATA[<p>Mac 直接在 Finder 里访问 /etc/hosts 下面的 hosts 文件，加入以下 IP 对应项即可。<br>
+127.0.0.1 chinanet.io</p>
+<h1 id="behance-host-start">behance Host Start</h1>
+<p>151.101.1.197 www.behance.net<br>
+151.101.65.197 www.behance.net<br>
+151.101.129.197 www.behance.net<br>
+151.101.193.197 www.behance.net<br>
+52.84.63.239 a5.behance.net<br>
+52.84.68.54 mir-s3-cdn-cf.behance.net<br>
+52.84.68.200 mir-s3-cdn-cf.behance.net<br>
+52.84.68.220 mir-s3-cdn-cf.behance.net<br>
+52.84.68.226 mir-s3-cdn-cf.beha nce.net</p>
+<h1 id="behance-host-end">behance Host End</h1>
+<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/WX20201223-004120@2x.png" alt="WX20201223-004120@2x" loading="lazy"></figure>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[React学习 -发展历史]]></title>
         <id>https://blog.boyso.com.cn/post/react-kai-fa-li-shi-xiao-bi-ji/</id>

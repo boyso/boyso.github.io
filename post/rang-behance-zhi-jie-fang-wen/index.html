@@ -2,18 +2,19 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>七牛云文件存储自动分配的 free 域名有坑 | BOYSO</title>
+<title>让Behance直接访问 | BOYSO</title>
 <link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1608655395510">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="七牛云文件存储自动分配的 free 域名有坑 | BOYSO - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="让Behance直接访问 | BOYSO - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="我使用的是 uPic + 七牛云 做图床使用，方便自动上传剪贴板、本地图片文件到七牛云上存储，并且生成 URL 地址，实时访问查看，主要是用在写博客使用了。
-之前估计使用的是七牛云免费分配的子域名，免费的嘛，我也没在意，最近也少写东西。
-今..." />
+    <meta name="description" content="Mac 直接在 Finder 里访问 /etc/hosts 下面的 hosts 文件，加入以下 IP 对应项即可。
+127.0.0.1 chinanet.io
+behance Host Start
+151.101.1.197 www.beh..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -84,50 +85,42 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              七牛云文件存储自动分配的 free 域名有坑
+              让Behance直接访问
             </h2>
             <div class="post-info">
               <span>
-                2020-02-28
+                2020-12-23
               </span>
               <span>
-                2 min read
+                1 min read
               </span>
               
             </div>
             
+              <img class="post-feature-image" src="http://img.1bz.net/uPic/WX20201223-004120@2x.png" alt="">
+            
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>我使用的是 uPic + 七牛云 做图床使用，方便自动上传剪贴板、本地图片文件到七牛云上存储，并且生成 URL 地址，实时访问查看，主要是用在写博客使用了。</p>
-<p>之前估计使用的是七牛云免费分配的子域名，免费的嘛，我也没在意，最近也少写东西。</p>
-<p>今天写 blog ，发现图片都无法显示了，刚开始以为是图床的访问权限问题，搜索一圈，才知道这算是个新手坑了吧。</p>
-<p>Fine~~~ 😃</p>
-<h2 id="添加域名配置-cname-解析">添加域名，配置 CNAME 解析</h2>
-<p>七牛云提供了域名绑定方式，即使用你自己的域名进行 CNAME 转发访问。<br>
-当然这样应该就会产生 CDN 的流量费用了(测试一段时间看看，反正现在博客访问量少)</p>
-<p>1、进行新版七牛对象存储里<br>
-<img src="http://img.1bz.net/uPic/t4DZjF.png" alt="t4DZjF" loading="lazy"><br>
-2、绑定加速域名<br>
-<img src="http://img.1bz.net/uPic/gxqMzk.png" alt="gxqMzk" loading="lazy"><br>
-3、使用自己的域名（务必是有备案的)<br>
-我使用自己的域名 <code>img.1bz.net</code><br>
-<img src="http://img.1bz.net/uPic/rWr16N.png" alt="rWr16N" loading="lazy"><br>
-4、去自己的域名里解析，<br>
-<a href="https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name">七牛云配置 CANME 方法</a></p>
-<h2 id="批量修改图片旧链接">批量修改图片旧链接</h2>
-<p>幸好现在发现这个坑，之前写的东西不多。<br>
-批量把 URL 里对应的域名全修改成 <code>img.1bz.net</code> 即可。</p>
-<p>OJBK~~</p>
+                <p>Mac 直接在 Finder 里访问 /etc/hosts 下面的 hosts 文件，加入以下 IP 对应项即可。<br>
+127.0.0.1 chinanet.io</p>
+<h1 id="behance-host-start">behance Host Start</h1>
+<p>151.101.1.197 www.behance.net<br>
+151.101.65.197 www.behance.net<br>
+151.101.129.197 www.behance.net<br>
+151.101.193.197 www.behance.net<br>
+52.84.63.239 a5.behance.net<br>
+52.84.68.54 mir-s3-cdn-cf.behance.net<br>
+52.84.68.200 mir-s3-cdn-cf.behance.net<br>
+52.84.68.220 mir-s3-cdn-cf.behance.net<br>
+52.84.68.226 mir-s3-cdn-cf.beha nce.net</p>
+<h1 id="behance-host-end">behance Host End</h1>
+<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/WX20201223-004120@2x.png" alt="WX20201223-004120@2x" loading="lazy"></figure>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li>
-<ul>
-<li><a href="#%E6%B7%BB%E5%8A%A0%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE-cname-%E8%A7%A3%E6%9E%90">添加域名，配置 CNAME 解析</a></li>
-<li><a href="#%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E5%9B%BE%E7%89%87%E6%97%A7%E9%93%BE%E6%8E%A5">批量修改图片旧链接</a></li>
-</ul>
-</li>
+<li><a href="#behance-host-start">behance Host Start</a></li>
+<li><a href="#behance-host-end">behance Host End</a></li>
 </ul>
 
               </div>
@@ -138,9 +131,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://blog.boyso.com.cn/post/Blog Update Daily/">
+            <a href="https://blog.boyso.com.cn/post/react-kai-fa-li-shi-xiao-bi-ji/">
               <h3 class="post-title">
-                2020官网更新日记记录
+                React学习 -发展历史
               </h3>
             </a>
           </div>
