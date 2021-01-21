@@ -2,17 +2,18 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>通过创建 Gitignore 规则，让Git在提交时自动忽略某些文件和文件对象 | BOYSO</title>
+<title>Figma 团队协同经验 | BOYSO</title>
 <link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1611200757077">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="通过创建 Gitignore 规则，让Git在提交时自动忽略某些文件和文件对象 | BOYSO - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="Figma 团队协同经验 | BOYSO - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="由于全栈，所以流程都得自己完成，但测试环境里有些文件只限本地使用的，不能也发布到生产环境里去，不然导致测试数据污染生产环境的情况。
-例如缓存 Cache 目录，本地有本地的 Cache ，生产有生的Cache，不应覆盖，估计在公司里程序员就..." />
+    <meta name="description" content="产品与交互文档流程
+产品需求文档+交互文档+UI稿，三份文档，一般会在Tapd、Teambition、禅道这类协同研发系统里流转。、对开发而言多了，一个需求就打开几个页面，就会产生不必要的注意力的断点。
+如果产品需求，一页过，交互与UI都不..." />
     <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
@@ -83,11 +84,11 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              通过创建 Gitignore 规则，让Git在提交时自动忽略某些文件和文件对象
+              Figma 团队协同经验
             </h2>
             <div class="post-info">
               <span>
-                2020-03-06
+                2021-01-21
               </span>
               <span>
                 1 min read
@@ -97,38 +98,19 @@
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <p>由于全栈，所以流程都得自己完成，但测试环境里有些文件只限本地使用的，不能也发布到生产环境里去，不然导致测试数据污染生产环境的情况。</p>
-<p>例如缓存 Cache 目录，本地有本地的 Cache ，生产有生的Cache，不应覆盖，估计在公司里程序员就会被祭天了吧</p>
-<p>查看当前会被提交的目录有哪些!</p>
-<p><code>git status</code></p>
-<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/PIXx7n.png" alt="PIXx7n" loading="lazy"></figure>
-<h4 id="1-根目录创建的-gitignore-文件">1、根目录创建的 .gitignore 文件</h4>
-<p><code>vi .gitignore</code>或者 <code>touch .gitignore</code>  都可以</p>
-<h4 id="2-写入要忽略提交的文件或者文件夹">2、写入要忽略提交的文件或者文件夹</h4>
-<figure data-type="image" tabindex="2"><img src="http://img.1bz.net/uPic/p0oMW3.png" alt="p0oMW3" loading="lazy"></figure>
-<p>那如果要单独忽略个别文件怎么办？</p>
-<p>可以参考以下规则：</p>
-<pre><code>1. Cache          //忽略这个 Cache 目录
-2. pay.php        //只忽略 pay.php 文件
-3. Cache/*        //忽略 Cache 下的所有文件
-4. images/*.png      //忽略 images 目录下的 .png 文件
-</code></pre>
-<p>3、查看效果</p>
-<p>再使用 <code>git status</code> 查看一下效果</p>
-
+                <h2 id="产品与交互文档流程">产品与交互文档流程</h2>
+<p>产品需求文档+交互文档+UI稿，三份文档，一般会在Tapd、Teambition、禅道这类协同研发系统里流转。、对开发而言多了，一个需求就打开几个页面，就会产生不必要的注意力的断点。<br>
+如果产品需求，一页过，交互与UI都不需要打开新页面，那就可以减少开发打开的页面数了。</p>
+<h3 id="figma-对外嵌入代码">Figma 对外嵌入代码。</h3>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FV5HrpX3u2lc0ye3wig4vUoJw%2FWhat-the-FK-Figma%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
 <li>
 <ul>
-<li>
+<li><a href="#%E4%BA%A7%E5%93%81%E4%B8%8E%E4%BA%A4%E4%BA%92%E6%96%87%E6%A1%A3%E6%B5%81%E7%A8%8B">产品与交互文档流程</a>
 <ul>
-<li>
-<ul>
-<li><a href="#1-%E6%A0%B9%E7%9B%AE%E5%BD%95%E5%88%9B%E5%BB%BA%E7%9A%84-gitignore-%E6%96%87%E4%BB%B6">1、根目录创建的 .gitignore 文件</a></li>
-<li><a href="#2-%E5%86%99%E5%85%A5%E8%A6%81%E5%BF%BD%E7%95%A5%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6%E6%88%96%E8%80%85%E6%96%87%E4%BB%B6%E5%A4%B9">2、写入要忽略提交的文件或者文件夹</a></li>
-</ul>
-</li>
+<li><a href="#figma-%E5%AF%B9%E5%A4%96%E5%B5%8C%E5%85%A5%E4%BB%A3%E7%A0%81">Figma 对外嵌入代码。</a></li>
 </ul>
 </li>
 </ul>
@@ -143,9 +125,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://blog.boyso.com.cn/post/Ubuntu reset root pwd/">
+            <a href="https://blog.boyso.com.cn/post/rang-behance-zhi-jie-fang-wen/">
               <h3 class="post-title">
-                树莓派安装 Ubuntu 修改 root 密码
+                让Behance直接访问
               </h3>
             </a>
           </div>
