@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.boyso.com.cn</id>
     <title>BOYSO</title>
-    <updated>2021-02-19T12:00:50.429Z</updated>
+    <updated>2021-02-19T17:28:17.296Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.boyso.com.cn"/>
     <link rel="self" href="https://blog.boyso.com.cn/atom.xml"/>
@@ -10,6 +10,31 @@
     <logo>https://blog.boyso.com.cn/images/avatar.png</logo>
     <icon>https://blog.boyso.com.cn/favicon.ico</icon>
     <rights>All rights reserved 2021, BOYSO</rights>
+    <entry>
+        <title type="html"><![CDATA[缺少SSL，导致七牛图床无法显示]]></title>
+        <id>https://blog.boyso.com.cn/post/que-shao-ssldao-zhi-qi-niu-tu-chuang-wu-fa-xian-shi/</id>
+        <link href="https://blog.boyso.com.cn/post/que-shao-ssldao-zhi-qi-niu-tu-chuang-wu-fa-xian-shi/">
+        </link>
+        <updated>2021-02-19T17:05:07.000Z</updated>
+        <content type="html"><![CDATA[<p>很长一段时间，我的图床一直是残废的状态，也曾多次找寻问题也无果，今天请教了Design+code 群里，遇到了白宦成老师的指导，一下就找到问题，药到病除！</p>
+<h3 id="环境说明">环境说明</h3>
+<p>我 blog 是托管在 github 上，使用 Gride 本地写完就同步上去。<br>
+而图床用的就七牛（免费、香），配合uPic 上传。<br>
+传送门<br>
+<a href="https://blog.boyso.com.cn/post/write%20blog%20by%20uPic%20and%20markdown/">《想写blog，所以需要一个顺手的图床-uPic/iPic + 七牛云》</a></p>
+<h3 id="问题">问题</h3>
+<p>上传到图床上的图片URL 在浏览器里直接能访问，但只要嵌入到 img 标签里就无法显示，我用了排除法，在其他在线编辑器上也无法显示，说明问题不一定出在我博客配置上。网上也找不到类似的问题（想想应该是我搜索的方向错了😑）<br>
+<img src="http://img.1bz.net/uPic/WechatIMG10064.png" alt="WechatIMG10064" loading="lazy"></p>
+<h3 id="解决">解决</h3>
+<p>估计是我之前不小心给 blog.boyso.com.cn 开了免费的SSL证书，而图床的 img.1bz.net 是没有 SSL 证书的，白宦成老师指出『https 页面无法嵌入不安全的资源（没有 https 的资源）』，一下点醒憨憨的我，</p>
+<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/WechatIMG10072.png" alt="WechatIMG10072" loading="lazy"></figure>
+<p>那就很简单了，我看到七牛里就很良心的可以自动申请免费的 SSL证书，而且是一键的，太棒了。<br>
+<img src="http://img.1bz.net/uPic/WechatIMG10106.png" alt="WechatIMG10106" loading="lazy"></p>
+<p>不过就是要每年续费或者重新申请一次 SSL 证书，毕竟... Free 哈😏<br>
+配置完后，再看 blog 文件里的图片全正常了。👏👏<br>
+<img src="http://img.1bz.net/uPic/WechatIMG10174.jpeg" alt="WechatIMG10174" loading="lazy"></p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Swift学习- Xcode 运行就卡死原因]]></title>
         <id>https://blog.boyso.com.cn/post/swift-xue-xi-xcode-yun-xing-jiu-qia-si-yuan-yin/</id>
@@ -223,29 +248,6 @@
 <p>幸好现在发现这个坑，之前写的东西不多。<br>
 批量把 URL 里对应的域名全修改成 <code>img.1bz.net</code> 即可。</p>
 <p>OJBK~~</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2020官网更新日记记录]]></title>
-        <id>https://blog.boyso.com.cn/post/Blog Update Daily/</id>
-        <link href="https://blog.boyso.com.cn/post/Blog Update Daily/">
-        </link>
-        <updated>2020-01-20T11:00:00.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="1-20日">1-20日</h3>
-<ul>
-<li>更新 侧栏菜单样式</li>
-<li>更新 首页客户案例的CSS 结构，之前的结构太松散。</li>
-<li>更新 文章页 的其他文章 的CSS样式</li>
-<li>更新 文章页 正文底部宽松度</li>
-<li>重新把客户列表从图片写成 Html 结构，同时针对 H5 调整效果</li>
-</ul>
-<p>心得：到目前为止，已经大致掌握了 Media 的使用。对 Hexo 的模板基本可以搞出来了，就还是觉得HEXO的模板分离不是很友好，太散了。（好奇一般前端工程师是先写好静态模板后，再移植到 Hexo 里的吧，Swig 引擎还没搞熟。</p>
-<h3 id="1-19日">1-19日</h3>
-<p>今天生日，奔波广州-中山两地跑，以至于20日凌晨才开车加到广州，真是要命。</p>
-<h3 id="1-18日">1-18日</h3>
-<ul>
-<li>调整了页面的样式</li>
-</ul>
 ]]></content>
     </entry>
 </feed>
