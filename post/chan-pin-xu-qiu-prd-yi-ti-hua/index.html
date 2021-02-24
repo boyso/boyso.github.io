@@ -2,19 +2,35 @@
   <head>
     <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>让前端调试不受本地缓存束缚，实时更新缓存 | BOYSO</title>
+<title>产品需求PRD一体化 | BOYSO</title>
 <link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1614173401158">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@2.3.0/fonts/remixicon.css" rel="stylesheet">
 <link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
-<link rel="alternate" type="application/atom+xml" title="让前端调试不受本地缓存束缚，实时更新缓存 | BOYSO - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
+<link rel="alternate" type="application/atom+xml" title="产品需求PRD一体化 | BOYSO - Atom Feed" href="https://blog.boyso.com.cn/atom.xml">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700">
 
 
 
-    <meta name="description" content="
-在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。
-近期写了为了调试而 关闭 PHP 缓存的方法，测试环境..." />
-    <meta name="keywords" content="全栈" />
+    <meta name="description" content="一、文档定位
+1、文档整合一份
+2、统一产品部门
+3、产品交互深度优化
+4、嵌入交互原型(可交互更好)
+5、嵌入UI稿
+二、文档结构
+1、业务BRD
+
+业务流程
+场景流程
+系统流程
+状态机
+
+2、需求PRD
+
+PRD内容
+交互原型
+交互说明..." />
+    <meta name="keywords" content="" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
     <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
   </head>
@@ -84,69 +100,95 @@
         <div class="post-detail">
           <article class="post">
             <h2 class="post-title">
-              让前端调试不受本地缓存束缚，实时更新缓存
+              产品需求PRD一体化
             </h2>
             <div class="post-info">
               <span>
-                2020-03-11
+                2021-02-24
               </span>
               <span>
-                2 min read
+                1 min read
               </span>
-              
-                <a href="https://blog.boyso.com.cn/tag/LxIfcBOs8/" class="post-tag">
-                  # 全栈
-                </a>
               
             </div>
             
             <div class="post-content-wrapper">
               <div class="post-content">
-                <!-- more -->
-<p>在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。</p>
-<p>近期写了为了调试而 关闭 PHP 缓存的方法，测试环境关闭了之后，效率果然快好多，最起码不用老去手删，或者干等着。</p>
-<p>前端 CSS 和 JS 的调试也同样会产生缓存，但这些都是生成在本地的，也是手动删除，每次那个心累。</p>
-<p><strong>解决问题</strong></p>
-<p>前端页面调试过程中 CSS 和 JS 减少刷新缓存的次数</p>
-<h4 id="解决办法">解决办法</h4>
-<p><strong>调试环境里</strong>，一般使用实时地 CSS 、JS 文件名加随机参数实现，让浏览器实时拉取「全新不同」的 css 文件，格式类似：style.css?time=0.4532025633957022</p>
-<p>CSS 文件</p>
-<pre><code class="language-js">&lt;script&gt;
-        document.write(&quot;&lt;link rel='stylesheet' href='./src/styles/main.css?time=&quot;+Math.random()+&quot;'&gt;&quot;);
-&lt;/script&gt;
-</code></pre>
-<p>JS文件</p>
-<pre><code class="language-js">&lt;script&gt;
-        document.write(&quot;&lt;script type='text/javascript' src='./src/scripts/video.js?time=&quot;+Math.random()+&quot;'&gt;&lt;/&quot;+&quot;script&quot;+&quot;&gt;&quot;)
- &lt;/script&gt;
-</code></pre>
-<p>这样就可以实时加载最新的 CSS、JS 文件了👌。</p>
-<p>再也不用老按快捷键了~~</p>
-<p><strong>另外生产环境里</strong>，CSS 、JS 文件后面带一个版本号之类的，就好可追溯调试也方便识别。</p>
-<p>格式类似：style.css?v=6.2.1.822</p>
-<blockquote>
-<p>参考文章</p>
-</blockquote>
-<blockquote>
-<p><a href="https://blog.csdn.net/hongyu799/article/details/91489893">解决每次上线更新文件需要手动清除缓存的问题-------js 、css自动清除浏览器缓存方法</a></p>
-</blockquote>
+                <h1 id="一-文档定位">一、文档定位</h1>
+<p>1、文档整合一份<br>
+2、统一产品部门<br>
+3、产品交互深度优化<br>
+4、嵌入交互原型(可交互更好)<br>
+5、嵌入UI稿</p>
+<h1 id="二-文档结构">二、文档结构</h1>
+<h2 id="1-业务brd">1、<strong>业务BRD</strong></h2>
+<ul>
+<li>业务流程</li>
+<li>场景流程</li>
+<li>系统流程</li>
+<li>状态机</li>
+</ul>
+<h2 id="2-需求prd">2、<strong>需求PRD</strong></h2>
+<ul>
+<li>PRD内容</li>
+<li>交互原型</li>
+<li>交互说明</li>
+<li>UI稿关联</li>
+</ul>
+<h2 id="3-交互原型">3、<strong>交互原型</strong></h2>
+<h2 id="4-上线后体验验证周期">4、<strong>上线后体验验证周期</strong></h2>
+<ul>
+<li>核心体验点</li>
+<li>用户体验评分
+<ul>
+<li>划分用户群体进行访谈，收集感受</li>
+<li>核心数据埋点，数据化分析</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-组件使用参考">5、<strong>组件使用参考</strong></h2>
+<ul>
+<li>外部系统对接
+<ul>
+<li>接口API</li>
+<li>微信能力</li>
+</ul>
+</li>
+<li>素材库
+<ul>
+<li>PRD全局规范</li>
+<li>UED 规范</li>
+</ul>
+</li>
+</ul>
+<h1 id="三-文档评审标准">三、文档评审标准</h1>
+<ul>
+<li>易用性评估</li>
+<li>交互组件统一使用情况</li>
+<li>文案语义审查</li>
+<li>UI稿是否遵循设计视觉规范</li>
+</ul>
+<h1 id="四-上线后验证标准">四、<strong>上线后验证标准</strong></h1>
+<ul>
+<li>划分用户群体进行访谈，收集感受</li>
+<li>核心数据埋点，数据化分析</li>
+</ul>
 
               </div>
               <div class="toc-container">
                 <ul class="markdownIt-TOC">
-<li>
+<li><a href="#%E4%B8%80-%E6%96%87%E6%A1%A3%E5%AE%9A%E4%BD%8D">一、文档定位</a></li>
+<li><a href="#%E4%BA%8C-%E6%96%87%E6%A1%A3%E7%BB%93%E6%9E%84">二、文档结构</a>
 <ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95">解决办法</a></li>
+<li><a href="#1-%E4%B8%9A%E5%8A%A1brd">1、<strong>业务BRD</strong></a></li>
+<li><a href="#2-%E9%9C%80%E6%B1%82prd">2、<strong>需求PRD</strong></a></li>
+<li><a href="#3-%E4%BA%A4%E4%BA%92%E5%8E%9F%E5%9E%8B">3、<strong>交互原型</strong></a></li>
+<li><a href="#4-%E4%B8%8A%E7%BA%BF%E5%90%8E%E4%BD%93%E9%AA%8C%E9%AA%8C%E8%AF%81%E5%91%A8%E6%9C%9F">4、<strong>上线后体验验证周期</strong></a></li>
+<li><a href="#5-%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8%E5%8F%82%E8%80%83">5、<strong>组件使用参考</strong></a></li>
 </ul>
 </li>
-</ul>
-</li>
-</ul>
-</li>
+<li><a href="#%E4%B8%89-%E6%96%87%E6%A1%A3%E8%AF%84%E5%AE%A1%E6%A0%87%E5%87%86">三、文档评审标准</a></li>
+<li><a href="#%E5%9B%9B-%E4%B8%8A%E7%BA%BF%E5%90%8E%E9%AA%8C%E8%AF%81%E6%A0%87%E5%87%86">四、<strong>上线后验证标准</strong></a></li>
 </ul>
 
               </div>
@@ -157,9 +199,9 @@
         
           <div class="next-post">
             <div class="next">下一篇</div>
-            <a href="https://blog.boyso.com.cn/post/php opcache reset/">
+            <a href="https://blog.boyso.com.cn/post/que-shao-ssldao-zhi-qi-niu-tu-chuang-wu-fa-xian-shi/">
               <h3 class="post-title">
-                关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下
+                缺少SSL，导致七牛图床无法显示
               </h3>
             </a>
           </div>

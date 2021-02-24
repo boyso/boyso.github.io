@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://blog.boyso.com.cn</id>
     <title>BOYSO</title>
-    <updated>2021-02-20T11:59:09.249Z</updated>
+    <updated>2021-02-24T13:30:05.455Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://blog.boyso.com.cn"/>
     <link rel="self" href="https://blog.boyso.com.cn/atom.xml"/>
@@ -10,6 +10,73 @@
     <logo>https://blog.boyso.com.cn/images/avatar.png</logo>
     <icon>https://blog.boyso.com.cn/favicon.ico</icon>
     <rights>All rights reserved 2021, BOYSO</rights>
+    <entry>
+        <title type="html"><![CDATA[产品需求PRD一体化]]></title>
+        <id>https://blog.boyso.com.cn/post/chan-pin-xu-qiu-prd-yi-ti-hua/</id>
+        <link href="https://blog.boyso.com.cn/post/chan-pin-xu-qiu-prd-yi-ti-hua/">
+        </link>
+        <updated>2021-02-24T12:01:32.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="一-文档定位">一、文档定位</h1>
+<p>1、文档整合一份<br>
+2、统一产品部门<br>
+3、产品交互深度优化<br>
+4、嵌入交互原型(可交互更好)<br>
+5、嵌入UI稿</p>
+<h1 id="二-文档结构">二、文档结构</h1>
+<h2 id="1-业务brd">1、<strong>业务BRD</strong></h2>
+<ul>
+<li>业务流程</li>
+<li>场景流程</li>
+<li>系统流程</li>
+<li>状态机</li>
+</ul>
+<h2 id="2-需求prd">2、<strong>需求PRD</strong></h2>
+<ul>
+<li>PRD内容</li>
+<li>交互原型</li>
+<li>交互说明</li>
+<li>UI稿关联</li>
+</ul>
+<h2 id="3-交互原型">3、<strong>交互原型</strong></h2>
+<h2 id="4-上线后体验验证周期">4、<strong>上线后体验验证周期</strong></h2>
+<ul>
+<li>核心体验点</li>
+<li>用户体验评分
+<ul>
+<li>划分用户群体进行访谈，收集感受</li>
+<li>核心数据埋点，数据化分析</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-组件使用参考">5、<strong>组件使用参考</strong></h2>
+<ul>
+<li>外部系统对接
+<ul>
+<li>接口API</li>
+<li>微信能力</li>
+</ul>
+</li>
+<li>素材库
+<ul>
+<li>PRD全局规范</li>
+<li>UED 规范</li>
+</ul>
+</li>
+</ul>
+<h1 id="三-文档评审标准">三、文档评审标准</h1>
+<ul>
+<li>易用性评估</li>
+<li>交互组件统一使用情况</li>
+<li>文案语义审查</li>
+<li>UI稿是否遵循设计视觉规范</li>
+</ul>
+<h1 id="四-上线后验证标准">四、<strong>上线后验证标准</strong></h1>
+<ul>
+<li>划分用户群体进行访谈，收集感受</li>
+<li>核心数据埋点，数据化分析</li>
+</ul>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[缺少SSL，导致七牛图床无法显示]]></title>
         <id>https://blog.boyso.com.cn/post/que-shao-ssldao-zhi-qi-niu-tu-chuang-wu-fa-xian-shi/</id>
@@ -223,34 +290,6 @@
 <figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/lmWzd3.png" alt="lmWzd3" loading="lazy"></figure>
 <p>输入密码，正常切换 root 账户。<br>
 即可。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[七牛云文件存储自动分配的 free 域名有坑]]></title>
-        <id>https://blog.boyso.com.cn/post/qiniutuku/</id>
-        <link href="https://blog.boyso.com.cn/post/qiniutuku/">
-        </link>
-        <updated>2020-02-28T14:52:00.000Z</updated>
-        <content type="html"><![CDATA[<p>我使用的是 uPic + 七牛云 做图床使用，方便自动上传剪贴板、本地图片文件到七牛云上存储，并且生成 URL 地址，实时访问查看，主要是用在写博客使用了。</p>
-<p>之前估计使用的是七牛云免费分配的子域名，免费的嘛，我也没在意，最近也少写东西。</p>
-<p>今天写 blog ，发现图片都无法显示了，刚开始以为是图床的访问权限问题，搜索一圈，才知道这算是个新手坑了吧。</p>
-<p>Fine~~~ 😃</p>
-<h2 id="添加域名配置-cname-解析">添加域名，配置 CNAME 解析</h2>
-<p>七牛云提供了域名绑定方式，即使用你自己的域名进行 CNAME 转发访问。<br>
-当然这样应该就会产生 CDN 的流量费用了(测试一段时间看看，反正现在博客访问量少)</p>
-<p>1、进行新版七牛对象存储里<br>
-<img src="http://img.1bz.net/uPic/t4DZjF.png" alt="t4DZjF" loading="lazy"><br>
-2、绑定加速域名<br>
-<img src="http://img.1bz.net/uPic/gxqMzk.png" alt="gxqMzk" loading="lazy"><br>
-3、使用自己的域名（务必是有备案的)<br>
-我使用自己的域名 <code>img.1bz.net</code><br>
-<img src="http://img.1bz.net/uPic/rWr16N.png" alt="rWr16N" loading="lazy"><br>
-4、去自己的域名里解析，<br>
-<a href="https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name">七牛云配置 CANME 方法</a></p>
-<h2 id="批量修改图片旧链接">批量修改图片旧链接</h2>
-<p>幸好现在发现这个坑，之前写的东西不多。<br>
-批量把 URL 里对应的域名全修改成 <code>img.1bz.net</code> 即可。</p>
-<p>OJBK~~</p>
 ]]></content>
     </entry>
 </feed>
