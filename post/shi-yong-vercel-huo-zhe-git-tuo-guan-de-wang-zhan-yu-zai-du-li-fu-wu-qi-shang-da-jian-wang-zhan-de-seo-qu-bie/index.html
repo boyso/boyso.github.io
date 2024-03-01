@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>使用Vercel 或者Git 托管的网站，与在独立服务器上搭建网站的SEO区别 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1709256309590">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="使用Vercel或Git（如GitHub Pages）托管的网站与在独立服务器上搭建网站，在SEO优化方面的主要区别主要体现在以下几个方面：
+服务器控制和配置灵活性：
+独立服务器：拥有完全的服务器控制权和配置灵活性。可以根据SEO需要进行详..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1709256309590" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>  | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">使用Vercel 或者Git 托管的网站，与在独立服务器上搭建网站的SEO区别</h2>
+            <div class="post-date">2024-02-26</div>
+            
+            <div class="post-content" v-pre>
+              <p>使用Vercel或Git（如GitHub Pages）托管的网站与在独立服务器上搭建网站，在SEO优化方面的主要区别主要体现在以下几个方面：</p>
+<p><strong>服务器控制和配置灵活性：</strong><br>
+独立服务器：拥有完全的服务器控制权和配置灵活性。可以根据SEO需要进行详细的配置，如设置缓存策略、优化服务器响应时间等，从而对SEO产生正面影响。<br>
+Vercel/Git托管：虽然这些平台提供了高性能的托管服务，并且对于静态网站和JAMstack应用非常友好，但你对服务器的控制和配置选项有限，这可能限制了进行一些特定SEO优化的能力。<br>
+<strong>网站速度和性能：</strong><br>
+独立服务器：网站的速度和性能依赖于服务器的配置、所在的地理位置以及网络的质量。如果优化得当，可以实现非常快的加载速度，这对SEO非常有利。<br>
+Vercel/Git托管：通常提供非常好的速度和性能，特别是对于静态网站。这些平台使用CDN（内容分发网络）来加速内容的加载，对SEO有正面效果。<br>
+<strong>安全性：</strong><br>
+独立服务器：需要自己负责网站的安全性，包括安装SSL证书、进行安全更新等。网站的安全性对SEO有直接影响，因为搜索引擎倾向于排名安全的网站。<br>
+Vercel/Git托管：这些平台通常会自动处理SSL证书的安装和续期，提供一定程度的安全保障。这降低了管理负担，对SEO是有利的。<br>
+<strong>SEO工具和插件的使用：</strong><br>
+独立服务器：可以安装和使用各种SEO工具和插件，例如用于WordPress的Yoast SEO插件，这些工具可以帮助改善网站的SEO。<br>
+Vercel/Git托管：使用的是静态网站生成器（如Next.js、Hugo、Jekyll等），可能无法直接使用这些SEO插件。不过，可以通过代码优化和一些第三方服务来实现SEO优化。<br>
+<strong>自定义URL结构：</strong><br>
+独立服务器：可以完全自定义URL结构，这对于SEO是非常重要的。<br>
+Vercel/Git托管：虽然也支持自定义URL结构，但可能会有一些限制，尤其是在使用特定静态网站生成器时。</p>
+<p>QA by chatGPT</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.boyso.com.cn/post/ru-he-jie-jue-macos-lan-ya-bu-ke-yong-wen-ti/">
+                  <h3 class="post-title">
+                    如何解决 MacOS “蓝牙不可用” 问题
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
