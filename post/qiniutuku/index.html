@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>七牛云文件存储自动分配的 free 域名有坑 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1737360106146">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="我使用的是 uPic + 七牛云 做图床使用，方便自动上传剪贴板、本地图片文件到七牛云上存储，并且生成 URL 地址，实时访问查看，主要是用在写博客使用了。
+之前估计使用的是七牛云免费分配的子域名，免费的嘛，我也没在意，最近也少写东西。
+今..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1737360106146" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      BOYSO | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">七牛云文件存储自动分配的 free 域名有坑</h2>
+            <div class="post-date">2020-02-28</div>
+            
+            <div class="post-content" v-pre>
+              <p>我使用的是 uPic + 七牛云 做图床使用，方便自动上传剪贴板、本地图片文件到七牛云上存储，并且生成 URL 地址，实时访问查看，主要是用在写博客使用了。</p>
+<p>之前估计使用的是七牛云免费分配的子域名，免费的嘛，我也没在意，最近也少写东西。</p>
+<p>今天写 blog ，发现图片都无法显示了，刚开始以为是图床的访问权限问题，搜索一圈，才知道这算是个新手坑了吧。</p>
+<p>Fine~~~ 😃</p>
+<h2 id="添加域名配置-cname-解析">添加域名，配置 CNAME 解析</h2>
+<p>七牛云提供了域名绑定方式，即使用你自己的域名进行 CNAME 转发访问。<br>
+当然这样应该就会产生 CDN 的流量费用了(测试一段时间看看，反正现在博客访问量少)</p>
+<p>1、进行新版七牛对象存储里<br>
+<img src="http://img.1bz.net/uPic/t4DZjF.png" alt="t4DZjF" loading="lazy"><br>
+2、绑定加速域名<br>
+<img src="http://img.1bz.net/uPic/gxqMzk.png" alt="gxqMzk" loading="lazy"><br>
+3、使用自己的域名（务必是有备案的)<br>
+我使用自己的域名 <code>img.1bz.net</code><br>
+<img src="http://img.1bz.net/uPic/rWr16N.png" alt="rWr16N" loading="lazy"><br>
+4、去自己的域名里解析，<br>
+<a href="https://developer.qiniu.com/fusion/kb/1322/how-to-configure-cname-domain-name">七牛云配置 CANME 方法</a></p>
+<h2 id="批量修改图片旧链接">批量修改图片旧链接</h2>
+<p>幸好现在发现这个坑，之前写的东西不多。<br>
+批量把 URL 里对应的域名全修改成 <code>img.1bz.net</code> 即可。</p>
+<p>OJBK~~</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.boyso.com.cn/post/Blog Update Daily/">
+                  <h3 class="post-title">
+                    2020官网更新日记记录
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

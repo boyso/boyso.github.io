@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>想写blog，所以需要一个顺手的图床-uPic/iPic + 七牛云 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1737360106146">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+
+产品需求
+自己想用 Markdown 好好写博客，所以我需要一个图床，功能需要能方便的通过 截图，复制，上传 操作并转化成可直接使用的URL。
+马上想到了 iPic，以前有用过，很方便，简单。但可惜的是... 穷。于是我又找到了 uPi..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1737360106146" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      BOYSO | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">想写blog，所以需要一个顺手的图床-uPic/iPic + 七牛云</h2>
+            <div class="post-date">2020-01-08</div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<!-- more -->
+<h3 id="产品需求">产品需求</h3>
+<p>自己想用 Markdown 好好写博客，所以我需要一个图床，功能需要能方便的通过 <strong>截图</strong>，<strong>复制</strong>，<strong>上传</strong> 操作并转化成可直接使用的<strong>URL</strong>。</p>
+<p>马上想到了 <a href="https://toolinbox.net/iPic/">iPic</a>，以前有用过，很方便，简单。但可惜的是... 穷。于是我又找到了 <a href="https://blog.svend.cc/upic/">uPic</a>,开源免费的图床，由 <a href="https://svend.cc/">Svend</a> 开发。<br>
+<img src="http://img.1bz.net/uPic/HxdLYf.jpg" width="30%"></p>
+<h3 id="支持的功能">支持的功能</h3>
+<h4 id="选择文件上传">🖥 选择文件上传</h4>
+<p>‌从Finder选择文件上传。可设置全局快捷键`<br>
+<img src="http://img.1bz.net/uPic/selectFile.gif" alt="selectFile" loading="lazy"></p>
+<h4 id="️-复制文件上传">⌨️ 复制文件上传</h4>
+<p>上传已拷贝到剪切板的文件。可设置全局快捷键<br>
+<img src="http://img.1bz.net/uPic/pasteboard.gif" alt="pasteboard" loading="lazy"></p>
+<h4 id="截图上传">📸 截图上传</h4>
+<p>直接拉框截图上传。<code>可设置全局快捷键</code><br>
+<img src="http://img.1bz.net/uPic/screenshot.gif" alt="screenshot" loading="lazy"></p>
+<h4 id="拖拽本地文件上传">🖱 拖拽本地文件上传</h4>
+<p>拖拽文件到状态栏上传<br>
+<img src="http://img.1bz.net/uPic/dragFile.gif" alt="dragFile" loading="lazy"></p>
+<h4 id="finder-中右键上传">📂 Finder 中右键上传</h4>
+<p>右击文件上传<br>
+<img src="http://img.1bz.net/uPic/contextmenu.gif" alt="contextmenu" loading="lazy"></p>
+<h4 id="️-命令行上传">⌨️ 命令行上传</h4>
+<p>通过执行命令调用 uPic 上传文件<br>
+<img src="http://img.1bz.net/uPic/cli.gif" alt="cli" loading="lazy"></p>
+<h4 id="其他图床配置">其他图床配置</h4>
+<ul>
+<li><a href="https://blog.svend.cc/upic/tutorials/qiniu_kodo/">uPic 图床配置教程 - 七牛云</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/weibo">uPic 图床配置教程 - 微博</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/upyun_uss">uPic 图床配置教程 - 又拍云</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/qiniu_kodo">uPic 图床配置教程 - 七牛云</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/aliyun_oss">uPic 图床配置教程 - 阿里云</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/tencent_cos">uPic 图床配置教程 - 腾讯云</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/baidu_bos">uPic 图床配置教程 - 百度云</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/amazon_s3">uPic 图床配置教程 - Amazon S3</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/github">uPic 图床配置教程 - Github</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/gitee">uPic 图床配置教程 - 码云(Gitee)</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/imgur">uPic 图床配置教程 - Imgur</a></li>
+<li><a href="https://blog.svend.cc/upic/tutorials/custom">uPic 图床配置教程 - 自定义上传</a></li>
+</ul>
+<p>That is Great!</p>
+
+            </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

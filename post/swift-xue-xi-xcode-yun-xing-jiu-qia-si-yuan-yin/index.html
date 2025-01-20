@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Swift学习- Xcode 运行就卡死原因 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1737360106146">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="近期学习 Swift 语言，争取在2021年能上线一款产品就是胜利✌
+问题
+新建一个新 playground，使用的是 iOS 的 Bank 空白页。
+写了几句基础的数据类型进行，运行打印，一直卡死很慢...
+
+解决
+差点入门就放弃，网上浪..." />
+    <meta name="keywords" content="Swift,Xcode,全栈" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1737360106146" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      BOYSO | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Swift学习- Xcode 运行就卡死原因</h2>
+            <div class="post-date">2021-02-19</div>
+            
+            <div class="post-content" v-pre>
+              <p><font color=gray size=2><em>近期学习 Swift 语言，争取在2021年能上线一款产品就是胜利✌</em></font></p>
+<h3 id="问题">问题</h3>
+<p>新建一个新 playground，使用的是 iOS 的 Bank 空白页。<br>
+写了几句基础的数据类型进行，运行打印，一直卡死很慢...<br>
+<img src="http://img.1bz.net/uPic/Xcode219.png" alt="Xcode219" loading="lazy"></p>
+<h3 id="解决">解决</h3>
+<p>差点入门就放弃，网上浪了一下，把 playground 右面侧栏里的 platform 的 iOS 改成 macOS 就可以了。<br>
+<img src="http://img.1bz.net/uPic/lDTVSy.png" alt="lDTVSy" loading="lazy"></p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://blog.boyso.com.cn/tag/Swift/" class="tag">
+                    Swift
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/Xcode/" class="tag">
+                    Xcode
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/LxIfcBOs8/" class="tag">
+                    全栈
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.boyso.com.cn/post/figma-tuan-dui-xie-tong-jing-yan/">
+                  <h3 class="post-title">
+                    Figma 团队协同经验
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

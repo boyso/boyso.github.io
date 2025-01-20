@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>让前端调试不受本地缓存束缚，实时更新缓存 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1737360106146">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。
+近期写了为了调试而 关闭 PHP 缓存的方法，测试环境..." />
+    <meta name="keywords" content="全栈" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1737360106146" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      BOYSO | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">让前端调试不受本地缓存束缚，实时更新缓存</h2>
+            <div class="post-date">2020-03-11</div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<p>在全栈设计开发的路上就像西天取经，刚开始也就像见过什么世面一样，就是后面陆续各种妖孽，小魔小怪的也就嘿咻嘿咻的跑出来，搞得我研究斗智斗勇。也许后续我该把全栈经历写成一个集合方便分享。</p>
+<p>近期写了为了调试而 关闭 PHP 缓存的方法，测试环境关闭了之后，效率果然快好多，最起码不用老去手删，或者干等着。</p>
+<p>前端 CSS 和 JS 的调试也同样会产生缓存，但这些都是生成在本地的，也是手动删除，每次那个心累。</p>
+<p><strong>解决问题</strong></p>
+<p>前端页面调试过程中 CSS 和 JS 减少刷新缓存的次数</p>
+<h4 id="解决办法">解决办法</h4>
+<p><strong>调试环境里</strong>，一般使用实时地 CSS 、JS 文件名加随机参数实现，让浏览器实时拉取「全新不同」的 css 文件，格式类似：style.css?time=0.4532025633957022</p>
+<p>CSS 文件</p>
+<pre><code class="language-js">&lt;script&gt;
+        document.write(&quot;&lt;link rel='stylesheet' href='./src/styles/main.css?time=&quot;+Math.random()+&quot;'&gt;&quot;);
+&lt;/script&gt;
+</code></pre>
+<p>JS文件</p>
+<pre><code class="language-js">&lt;script&gt;
+        document.write(&quot;&lt;script type='text/javascript' src='./src/scripts/video.js?time=&quot;+Math.random()+&quot;'&gt;&lt;/&quot;+&quot;script&quot;+&quot;&gt;&quot;)
+ &lt;/script&gt;
+</code></pre>
+<p>这样就可以实时加载最新的 CSS、JS 文件了👌。</p>
+<p>再也不用老按快捷键了~~</p>
+<p><strong>另外生产环境里</strong>，CSS 、JS 文件后面带一个版本号之类的，就好可追溯调试也方便识别。</p>
+<p>格式类似：style.css?v=6.2.1.822</p>
+<blockquote>
+<p>参考文章</p>
+</blockquote>
+<blockquote>
+<p><a href="https://blog.csdn.net/hongyu799/article/details/91489893">解决每次上线更新文件需要手动清除缓存的问题-------js 、css自动清除浏览器缓存方法</a></p>
+</blockquote>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://blog.boyso.com.cn/tag/LxIfcBOs8/" class="tag">
+                    全栈
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.boyso.com.cn/post/php opcache reset/">
+                  <h3 class="post-title">
+                    关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

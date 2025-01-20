@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>基于 Conflunce 文档无缝嵌入 Figma 稿件 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1737360106146">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="产研团队内部采用的是 Atlassian 家的 Confluence 作为技术研发、产品PRD，当然还有我们的UED团队。之前用过他家的 Jira，这套系统个人不太感冒，虽然貌似很强大...
+Anywhy, 起因是我刚接管UED团队时，发..." />
+    <meta name="keywords" content="Conflunce,PRD,文档,Figma,协同,效率工程,研发文档,嵌入" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1737360106146" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      BOYSO | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">基于 Conflunce 文档无缝嵌入 Figma 稿件</h2>
+            <div class="post-date">2021-11-30</div>
+            
+              <div class="feature-container" style="background-image: url('https://oss.boyso.com.cn/post-images/1638444500311.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p><img src="https://blog.boyso.com.cn/post-images/1737114427943.png" alt="" loading="lazy">产研团队内部采用的是 Atlassian 家的 Confluence 作为技术研发、产品PRD，当然还有我们的UED团队。之前用过他家的 Jira，这套系统个人不太感冒，虽然貌似很强大...<br>
+Anywhy, 起因是我刚接管UED团队时，发现内部的研发流程里，产品PRD与UED方案是分离的，UI 放在蓝湖，从上游产品部门到下游研发中，尤其前端打开太多文件和文档来熟悉一个需求很难受，出于内部协作效率工程的要求，我开始找寻更好的解决方案。</p>
+<h3 id="要求">要求</h3>
+<p>产品下发需求时，PRD应能完整体现整个需求的方方面面，功能架构、产品需求背景、交互文档、UI稿等。</p>
+<p><a href="https://blog.boyso.com.cn/post/chan-pin-xu-qiu-prd-yi-ti-hua/">产品需求PRD一体化</a></p>
+<h3 id="方案思路">方案思路</h3>
+<p>通过 Confluence 文档编辑器里的插入宏方式，把Fimga的Embed code 通过 iframe 的方式，把Figma 嵌入到文档中。</p>
+<p>使用 Embed code ，复制 iframe 代码<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113333726.png" alt="" loading="lazy"></p>
+<p>在Confluence 文档要编辑器里点击 +号，打开菜单，选择 其他宏，搜索 HTML 宏，并 插入。<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113338554.png" alt="" loading="lazy"></p>
+<p>使用HTML宏，支持嵌入 iframe 代码。<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113342912.png" alt="" loading="lazy"></p>
+<p>然后把复制过来的代码塞进 HTML 这个编辑器里即可。<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113347236.png" alt="" loading="lazy"></p>
+<p>最新方案<br>
+管理员可以通过添加 Figma 应用，可以直接使用。<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113352771.png" alt="" loading="lazy"><br>
+然后在文档里通过编辑器更多功能 +号  或者 文档内 『/』 就能添加 Figma 的Block（新版Confluence 学习了Notion的 Block 的方式）<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113357654.png" alt="" loading="lazy"><br>
+添加 Figma 的文档链接即可。<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113364228.png" alt="" loading="lazy"></p>
+<p><strong>数据安全问题</strong><br>
+由于使用的都是 iframe 的嵌入方式，刚引出来跨域登录权限的问题，在Figma文档里分享时，如果使用 <strong>Anyone with the link</strong> can view，则会有有安全问题，相当于把文档暴露在全网了。<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113380046.png" alt="" loading="lazy"><br>
+所以我们使用的是非团队成员无法访问的权限(我们是团队专业版)，则其实文档里的文档窗口也就是看不到的... 需要单独处理才行，这体验就很矛盾了....</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://blog.boyso.com.cn/tag/HmncKoANX/" class="tag">
+                    Conflunce
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/lYdHQxOqpR/" class="tag">
+                    PRD
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/TKf4CkdCgY/" class="tag">
+                    文档
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/pr0vVM5v2C/" class="tag">
+                    Figma
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/9Q8ZMD18Qv/" class="tag">
+                    协同
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/cukkEOvURX/" class="tag">
+                    效率工程
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/7SdyIxr6OP/" class="tag">
+                    研发文档
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/n1gNzWf1qN/" class="tag">
+                    嵌入
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.boyso.com.cn/post/lesslesswei-xin-bei-hou-de-chan-pin-guan-greatergreater-she-ji-zhe-de-shen-mei-guan/">
+                  <h3 class="post-title">
+                    《微信背后的产品观》-设计者的审美观
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

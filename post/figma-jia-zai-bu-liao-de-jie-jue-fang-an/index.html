@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>Figma 网络加载慢优化方案 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1737360106146">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="自七月起，Figma 的网络加载就像抽风一样，经常无法加载打开。马上向官方投诉，隔三差五各群里就会吐槽这事。而且部分人通过翻墙能解决，但不是所有人都有梯子。
+三种解决方案
+方法一：
+改DNS，把主DNS 改成 4.2.2.1 后，如果是用浏..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1737360106146" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      BOYSO | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">Figma 网络加载慢优化方案</h2>
+            <div class="post-date">2021-08-25</div>
+            
+            <div class="post-content" v-pre>
+              <p>自七月起，Figma 的网络加载就像抽风一样，经常无法加载打开。马上向官方投诉，隔三差五各群里就会吐槽这事。而且部分人通过翻墙能解决，但不是所有人都有梯子。</p>
+<p>三种解决方案<br>
+方法一：<br>
+改DNS，把主DNS 改成 4.2.2.1 后，如果是用浏览器的，重启浏览器，或者重启Figma 客户端，即可飞速加载。（最好重连网络一次，因为有时系统网络还没马上切换成功。）<br>
+方法二：<br>
+通过改本地 Hosts 的方式，强制系统优先访问 Figma 离我最短，最快的服务器IP。<br>
+这个可以参考四喜茶茶 的 Moonvy 团队写的网络推荐工具。<br>
+<a href="https://zhuanlan.zhihu.com/p/402819516?utm_source=wechat_timeline&amp;utm_medium=social&amp;utm_oi=1365070314515251200&amp;utm_content=group3_article&amp;utm_campaign=shareopn&amp;s_r=0">《🐌⚡️ Figma 提升访问速度》</a><br>
+Moonvy 群里 四喜茶茶 听到我们为加载慢这事苦不堪言后，马上收集大家的经验与方法，第二天就把工具与方法分享出来了，而且还迭代了两个版本。并不是你没能力，而是总有人很努力！<br>
+方法三：<br>
+开翻墙吧，国内有些地区的网线运营商对过外数据路由的确比较窄或者硬件不行，导致上面两种方法都不明显，</p>
+<p>经过这事也让我再次产生了要给团队换其他设计工具或者换回sketch的想法，找在蓝湖的污大 utom ，求Mastergo 快点起来哇。同时又下载了 Mastergo 用了下，不得不还是陷入了深思... 的确像 utom 提的，并不是表现像，底层的功底真不是马上见效的，不仅国内图形设计类工具的技术难，肯定也有商业氛围难活的原因。</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.boyso.com.cn/post/ued-tuan-dui-kai-qi-figma-zhuan-ye-ban-de-jing-yan/">
+                  <h3 class="post-title">
+                    UED团队开启 Figma 专业版的经验
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1737360106146">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="🙂 最近小项目使用 thinkphp 框架，整体进度还算顺利，但就是感觉缓存太久，前端改好后要等2分钟左右才能看效果，试过手动删除：网站目录下 Cache 里生成的文件，效果不大。
+思考
+这次测试环境使用 Parallels 开个 Cen..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1737360106146" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      BOYSO | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">关闭 PHP 的缓存 Opcache 让前端调试爽歪歪一下</h2>
+            <div class="post-date">2020-03-10</div>
+            
+            <div class="post-content" v-pre>
+              <p>🙂 最近小项目使用 thinkphp 框架，整体进度还算顺利，但就是感觉缓存太久，前端改好后要等2分钟左右才能看效果，试过手动删除：网站目录下 Cache 里生成的文件，效果不大。</p>
+<h4 id="思考">思考</h4>
+<p>这次测试环境使用 Parallels 开个 Centos，PHP环境直接使用 Oneinstack 进行部署。</p>
+<p>考虑到简化流程，可以直接改测试环境的代码，把 Centos 上的网站目录通过开启 SMB 服务，本地直接修改。</p>
+<p>考虑到减少服务器性能的消耗，缓存技术是相当重要的保障功能，把数据内容缓存成静态文件，让重复需求内容的用户客户端拉取缓存访问即可，提高效率，减少查询数据库。<br>
+而我现在只是测试环境，也只有我一个人消耗性能而已，就先把 PHP 的缓存关掉好了。</p>
+<p>由于使用的是 oneinstack，很多服务都集成好了，真棒，新手最爱。</p>
+<h4 id="解决方法">解决方法</h4>
+<h5 id="1修改opcache配置文件">1.修改opcache配置文件</h5>
+<p><code> $ vim /usr/local/php/etc/php.d/02-opcache.ini</code></p>
+<h5 id="2关闭opcache">2.关闭opcache</h5>
+<p>把以下配置关闭，都改成0</p>
+<p><code>opcache.enable = 1; opcache.enable_cli= 1;</code></p>
+<p>变成以下<br>
+<code>opcache.enable = 0; opcache.enable_cli= 0;</code></p>
+<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/9KkEOh.png" alt="9KkEOh" loading="lazy"></figure>
+<h5 id="3-从-oneinstack-卸载-php-composer">3. 从 oneinstack 卸载 PHP Composer</h5>
+<p>ssh 登入服务器，进入 oneinstack 的安装目录</p>
+<p>使用 <code>./addons.sh</code>  添/删组件命令</p>
+<p>选择删除 PHP Composer</p>
+<figure data-type="image" tabindex="2"><img src="http://img.1bz.net/uPic/DDzpx4.png" alt="DDzpx4" loading="lazy"></figure>
+<ol start="4">
+<li>
+<p>强制Reset 刷新PHP的缓存</p>
+<p>由于oneinstack 里带了web 探针及 面板，访问 服务器 ip 地址就能访问了</p>
+<figure data-type="image" tabindex="3"><img src="http://img.1bz.net/uPic/ijKv2i.png" alt="ijKv2i" loading="lazy"></figure>
+<p>请直接按下这个充满肥仔快乐的 <strong>Reset</strong> 按钮吧😎</p>
+<figure data-type="image" tabindex="4"><img src="http://img.1bz.net/uPic/6LDE6L.png" alt="6LDE6L" loading="lazy"></figure>
+</li>
+</ol>
+<p>最近得抽时间再把PHP的教程刷一下，得找些项目多练手，强化代码的肌肉记忆才行哈。</p>
+<p>参考文章**</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.boyso.com.cn/post/git gitignore/">
+                  <h3 class="post-title">
+                    通过创建 Gitignore 规则，让Git在提交时自动忽略某些文件和文件对象
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>解决MasterGo的字体加载报错问题，用 Claude AI 写了个清理MG缓存脚本 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1737360106146">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="今天同事 MasterGo 打开文档时，总是报“字体加载错误”，但又不给出什么原因，这个提示，对排查问题帮助不大。MasterGo 文件打开报错无非就是以下几种问题：
+
+本地网络问题
+开了梯子代理网络
+本地字体插件没安装
+企业版或者团队版的..." />
+    <meta name="keywords" content="MasterGo,UED,协同设计,BOYSO,清理缓存,Cache Cleanup" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1737360106146" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      BOYSO | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">解决MasterGo的字体加载报错问题，用 Claude AI 写了个清理MG缓存脚本</h2>
+            <div class="post-date">2025-01-17</div>
+            
+              <div class="feature-container" style="background-image: url('https://oss.boyso.com.cn/post-images/MasterGo-Cache-Cleanup-Script.png')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <p>今天同事 MasterGo 打开文档时，总是报“字体加载错误”，但又不给出什么原因，这个提示，对排查问题帮助不大。MasterGo 文件打开报错无非就是以下几种问题：</p>
+<ol>
+<li><strong>本地网络问题</strong></li>
+<li><strong>开了梯子代理网络</strong></li>
+<li><strong>本地字体插件没安装</strong></li>
+<li><strong>企业版或者团队版的字体库没上传这个字体</strong>（我们是企业版，字体也上传了）</li>
+</ol>
+<p>我逐个排除，“字体加载错误”与“字体缺失”的提示是不同的，“字体加载错误”一般是网络问题，“字体缺失”就真的是缺少字体了。<br>
+但就是解决不了，也不知道哪出了问题，全靠猜和排除法。</p>
+<p>找 MG 的客服，给了我一个解决方案：</p>
+<h2 id="windows用户">Windows用户：</h2>
+<blockquote>
+<p>进入 <code>C:\Users\EDY\MasterGo</code> 下【注意 EDY 换成自己的用户名】删除 <code>cacheFonts</code>、<code>fontsInfo</code>、<code>pathSvg</code> 是缓存，将这三个文件夹删除。</p>
+</blockquote>
+<p>于是我就顺手使用 Claude AI写成了清理脚本 Bat，方便大家使用。<br>
+<a href="https://oss.boyso.com.cn/MasterGoCacheCleanupScript.zip">下载脚本</a></p>
+<figure data-type="image" tabindex="1"><img src="https://blog.boyso.com.cn/post-images/Use-Claude-AI-coding.png" alt="使用 Claude AI 写代码" loading="lazy"></figure>
+<p>自己动手，Windows 用户在桌面新建一个 txt 文件，复制以下代码，保存为 bat 文件（或者改 <code>.txt</code> 为 <code>.bat</code>），如 <code>MasterGoCacheCleanupScript.bat</code>，然后双击运行即可。</p>
+<pre><code class="language-bat">@echo off
+chcp 65001 &gt;nul
+
+echo --------------------------
+echo MasterGo 本地缓存清理脚本V1.0
+echo 无论浏览器访问 MG 还是使用 MG 客户端，都会在本地写有缓存，为了提高文件加载速度，但就会占用本地硬盘空间。
+echo.
+echo 使用场景：打开文件报错，字体无法加载，C 盘空间不足
+echo.
+echo --------------------------
+echo 作者: BOYSO
+echo 微信: boysoman
+echo 网站: https://boyso.com.cn
+echo.
+
+:: 获取当前登录用户名
+set &quot;USERNAME=%USERNAME%&quot;
+
+:: 使用系统盘符而不是硬编码C:\
+set &quot;TARGET_FOLDER=%SystemDrive%\Users\%USERNAME%\MasterGo&quot;
+
+:: 启用延迟变量扩展
+setlocal enabledelayedexpansion
+
+:: 定义缓存文件夹名称
+set &quot;CACHE_FOLDERS=cacheFonts fontsInfo pathSvg&quot;
+
+:: 设置标志位来跟踪是否找到并删除了任何文件夹
+set &quot;FOUND_ANY=0&quot;
+
+:: 遍历每个文件夹并删除
+for %%F in (%CACHE_FOLDERS%) do (
+    set &quot;FOLDER_PATH=%TARGET_FOLDER%\%%F&quot;
+    if exist &quot;!FOLDER_PATH!&quot; (
+        echo 正在删除文件夹: !FOLDER_PATH!
+        rd /s /q &quot;!FOLDER_PATH!&quot;
+        set &quot;FOUND_ANY=1&quot;
+    ) else (
+        echo 未找到文件夹: !FOLDER_PATH!
+    )
+)
+
+echo.
+if %FOUND_ANY%==1 (
+    echo MG本地缓存清理成功！Cache folders processed successfully!
+) else (
+    echo 未找到任何MG缓存文件夹，无需清理。No MG cache folders found.
+)
+pause
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://blog.boyso.com.cn/post-images/2.png" alt="使用 Claude AI 写代码" loading="lazy"></figure>
+<h2 id="mac用户">Mac用户：</h2>
+<h3 id="客户端"><strong>客户端：</strong></h3>
+<blockquote>
+<p>退出客户端<br>
+打开 Finder<br>
+快捷键 command + shift + G，输入：~/Library/Application Support<br>
+找到 master-desktop，删除这个缓存</p>
+</blockquote>
+<h3 id="浏览器"><strong>浏览器：</strong></h3>
+<blockquote>
+<p>打开 Finder<br>
+快捷键 command + shift + G<br>
+输入：/Library/Application Support/MasterGo<br>
+删除 cacheFonts、fontsInfo、pathSvg 文件夹。</p>
+</blockquote>
+<p><strong>最简单的方法，用以下终端命令：</strong><br>
+打开 <code>&quot;终端&quot;</code> app，输入以下命令：</p>
+<p>MasterGo 客户端与浏览器缓存一键清理：</p>
+<pre><code>rm -rf ~/Library/Application\ Support/master-desktop /Library/Application\ Support/MasterGo/cacheFonts /Library/Application\ Support/MasterGo/fontsInfo /Library/Application\ Support/MasterGo/pathSvg
+</code></pre>
+<p>注意：如果遇到权限问题，可以在命令前加上 sudo 提权：</p>
+<pre><code>sudo rm -rf ~/Library/Application\ Support/master-desktop /Library/Application\ Support/MasterGo/cacheFonts /Library/Application\ Support/MasterGo/fontsInfo /Library/Application\ Support/MasterGo/pathSvg
+</code></pre>
+<p>最后我同事的问题解决了，但原因却是她C盘竟然满了...    她所有文件全放C盘了 ，难怪电脑很卡，我差点没晕倒，这习惯很不好哈，提醒一下大家。</p>
+<p><a href="https://oss.boyso.com.cn/MasterGoCacheCleanupScript.zip">下载脚本</a></p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://blog.boyso.com.cn/tag/YAQYxUQmKG/" class="tag">
+                    MasterGo
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/ued/" class="tag">
+                    UED
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/z_AxX3R6Uf2/" class="tag">
+                    协同设计
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/0nWjcaH5kuE/" class="tag">
+                    BOYSO
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/hOus_FB6X5d/" class="tag">
+                    清理缓存
+                  </a>
+                
+                  <a href="https://blog.boyso.com.cn/tag/UnLbEIAU_MF/" class="tag">
+                    Cache Cleanup
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.boyso.com.cn/post/yong-zui-jian-dan-de-fang-shi-zuo-shi/">
+                  <h3 class="post-title">
+                    用最简单的方式做事
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

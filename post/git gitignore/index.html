@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>通过创建 Gitignore 规则，让Git在提交时自动忽略某些文件和文件对象 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1737360106146">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="由于全栈，所以流程都得自己完成，但测试环境里有些文件只限本地使用的，不能也发布到生产环境里去，不然导致测试数据污染生产环境的情况。
+例如缓存 Cache 目录，本地有本地的 Cache ，生产有生的Cache，不应覆盖，估计在公司里程序员就..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1737360106146" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      BOYSO | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">通过创建 Gitignore 规则，让Git在提交时自动忽略某些文件和文件对象</h2>
+            <div class="post-date">2020-03-06</div>
+            
+            <div class="post-content" v-pre>
+              <p>由于全栈，所以流程都得自己完成，但测试环境里有些文件只限本地使用的，不能也发布到生产环境里去，不然导致测试数据污染生产环境的情况。</p>
+<p>例如缓存 Cache 目录，本地有本地的 Cache ，生产有生的Cache，不应覆盖，估计在公司里程序员就会被祭天了吧</p>
+<p>查看当前会被提交的目录有哪些!</p>
+<p><code> git status</code></p>
+<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/PIXx7n.png" alt="PIXx7n" loading="lazy"></figure>
+<h4 id="1-根目录创建的-gitignore-文件">1、根目录创建的 .gitignore 文件</h4>
+<p><code>vi .gitignore</code>或者 <code>touch .gitignore</code>  都可以</p>
+<h4 id="2-写入要忽略提交的文件或者文件夹">2、写入要忽略提交的文件或者文件夹</h4>
+<figure data-type="image" tabindex="2"><img src="http://img.1bz.net/uPic/p0oMW3.png" alt="p0oMW3" loading="lazy"></figure>
+<p>那如果要单独忽略个别文件怎么办？</p>
+<p>可以参考以下规则：</p>
+<pre><code>1. Cache          //忽略这个 Cache 目录
+2. pay.php        //只忽略 pay.php 文件
+3. Cache/*        //忽略 Cache 下的所有文件
+4. images/*.png      //忽略 images 目录下的 .png 文件
+</code></pre>
+<p>3、查看效果</p>
+<p>再使用 <code>git status</code> 查看一下效果</p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.boyso.com.cn/post/Ubuntu reset root pwd/">
+                  <h3 class="post-title">
+                    树莓派安装 Ubuntu 修改 root 密码
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

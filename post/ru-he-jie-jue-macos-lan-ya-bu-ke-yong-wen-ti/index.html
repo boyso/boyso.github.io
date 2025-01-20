@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>如何解决 MacOS “蓝牙不可用” 问题 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1737360106146">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="
+😀
+
+执行如下命令，而后等一会，等蓝牙图标恢复正常了再手动链接目标硬件就能够了。
+sudo pkill bluetoothd  &amp;&amp;  sudo rm /Library/Preferences/com.apple.Blu..." />
+    <meta name="keywords" content="硬件折腾" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1737360106146" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      BOYSO | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">如何解决 MacOS “蓝牙不可用” 问题</h2>
+            <div class="post-date">2022-06-06</div>
+            
+              <div class="feature-container" style="background-image: url('https://blog.boyso.com.cn/post-images/ru-he-jie-jue-macos-lan-ya-bu-ke-yong-wen-ti.jpg')">
+              </div>
+            
+            <div class="post-content" v-pre>
+              <!-- more -->
+<p>😀</p>
+<!-- more -->
+<p>执行如下命令，而后等一会，等蓝牙图标恢复正常了再手动链接目标硬件就能够了。<br>
+sudo pkill bluetoothd  &amp;&amp;  sudo rm /Library/Preferences/com.apple.Bluetooth.plist &amp;&amp; sudo pkill bluetoothd</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://blog.boyso.com.cn/tag/kwU-0bdac/" class="tag">
+                    硬件折腾
+                  </a>
+                
+              </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.boyso.com.cn/post/ji-yu-conflunce-wen-dang-wu-feng-qian-ru-figma-gao-jian/">
+                  <h3 class="post-title">
+                    基于 Conflunce 文档无缝嵌入 Figma 稿件
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

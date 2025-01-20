@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.boyso.com.cn</id>
+    <title>BOYSO</title>
+    <updated>2025-01-20T08:01:48.072Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://blog.boyso.com.cn"/>
+    <link rel="self" href="https://blog.boyso.com.cn/atom.xml"/>
+    <subtitle>Full Stack，Product design &amp; Thinking</subtitle>
+    <logo>https://blog.boyso.com.cn/images/avatar.png</logo>
+    <icon>https://blog.boyso.com.cn/favicon.ico</icon>
+    <rights>All rights reserved 2025, BOYSO</rights>
+    <entry>
+        <title type="html"><![CDATA[解决MasterGo的字体加载报错问题，用 Claude AI 写了个清理MG缓存脚本]]></title>
+        <id>https://blog.boyso.com.cn/post/MasterGo-Cache-Cleanup-Script/</id>
+        <link href="https://blog.boyso.com.cn/post/MasterGo-Cache-Cleanup-Script/">
+        </link>
+        <updated>2025-01-17T08:08:11.000Z</updated>
+        <content type="html"><![CDATA[<p>今天同事 MasterGo 打开文档时，总是报“字体加载错误”，但又不给出什么原因，这个提示，对排查问题帮助不大。MasterGo 文件打开报错无非就是以下几种问题：</p>
+<ol>
+<li><strong>本地网络问题</strong></li>
+<li><strong>开了梯子代理网络</strong></li>
+<li><strong>本地字体插件没安装</strong></li>
+<li><strong>企业版或者团队版的字体库没上传这个字体</strong>（我们是企业版，字体也上传了）</li>
+</ol>
+<p>我逐个排除，“字体加载错误”与“字体缺失”的提示是不同的，“字体加载错误”一般是网络问题，“字体缺失”就真的是缺少字体了。<br>
+但就是解决不了，也不知道哪出了问题，全靠猜和排除法。</p>
+<p>找 MG 的客服，给了我一个解决方案：</p>
+<h2 id="windows用户">Windows用户：</h2>
+<blockquote>
+<p>进入 <code>C:\Users\EDY\MasterGo</code> 下【注意 EDY 换成自己的用户名】删除 <code>cacheFonts</code>、<code>fontsInfo</code>、<code>pathSvg</code> 是缓存，将这三个文件夹删除。</p>
+</blockquote>
+<p>于是我就顺手使用 Claude AI写成了清理脚本 Bat，方便大家使用。<br>
+<a href="https://oss.boyso.com.cn/MasterGoCacheCleanupScript.zip">下载脚本</a></p>
+<figure data-type="image" tabindex="1"><img src="https://blog.boyso.com.cn/post-images/Use-Claude-AI-coding.png" alt="使用 Claude AI 写代码" loading="lazy"></figure>
+<p>自己动手，Windows 用户在桌面新建一个 txt 文件，复制以下代码，保存为 bat 文件（或者改 <code>.txt</code> 为 <code>.bat</code>），如 <code>MasterGoCacheCleanupScript.bat</code>，然后双击运行即可。</p>
+<pre><code class="language-bat">@echo off
+chcp 65001 &gt;nul
+
+echo --------------------------
+echo MasterGo 本地缓存清理脚本V1.0
+echo 无论浏览器访问 MG 还是使用 MG 客户端，都会在本地写有缓存，为了提高文件加载速度，但就会占用本地硬盘空间。
+echo.
+echo 使用场景：打开文件报错，字体无法加载，C 盘空间不足
+echo.
+echo --------------------------
+echo 作者: BOYSO
+echo 微信: boysoman
+echo 网站: https://boyso.com.cn
+echo.
+
+:: 获取当前登录用户名
+set &quot;USERNAME=%USERNAME%&quot;
+
+:: 使用系统盘符而不是硬编码C:\
+set &quot;TARGET_FOLDER=%SystemDrive%\Users\%USERNAME%\MasterGo&quot;
+
+:: 启用延迟变量扩展
+setlocal enabledelayedexpansion
+
+:: 定义缓存文件夹名称
+set &quot;CACHE_FOLDERS=cacheFonts fontsInfo pathSvg&quot;
+
+:: 设置标志位来跟踪是否找到并删除了任何文件夹
+set &quot;FOUND_ANY=0&quot;
+
+:: 遍历每个文件夹并删除
+for %%F in (%CACHE_FOLDERS%) do (
+    set &quot;FOLDER_PATH=%TARGET_FOLDER%\%%F&quot;
+    if exist &quot;!FOLDER_PATH!&quot; (
+        echo 正在删除文件夹: !FOLDER_PATH!
+        rd /s /q &quot;!FOLDER_PATH!&quot;
+        set &quot;FOUND_ANY=1&quot;
+    ) else (
+        echo 未找到文件夹: !FOLDER_PATH!
+    )
+)
+
+echo.
+if %FOUND_ANY%==1 (
+    echo MG本地缓存清理成功！Cache folders processed successfully!
+) else (
+    echo 未找到任何MG缓存文件夹，无需清理。No MG cache folders found.
+)
+pause
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://blog.boyso.com.cn/post-images/2.png" alt="使用 Claude AI 写代码" loading="lazy"></figure>
+<h2 id="mac用户">Mac用户：</h2>
+<h3 id="客户端"><strong>客户端：</strong></h3>
+<blockquote>
+<p>退出客户端<br>
+打开 Finder<br>
+快捷键 command + shift + G，输入：~/Library/Application Support<br>
+找到 master-desktop，删除这个缓存</p>
+</blockquote>
+<h3 id="浏览器"><strong>浏览器：</strong></h3>
+<blockquote>
+<p>打开 Finder<br>
+快捷键 command + shift + G<br>
+输入：/Library/Application Support/MasterGo<br>
+删除 cacheFonts、fontsInfo、pathSvg 文件夹。</p>
+</blockquote>
+<p><strong>最简单的方法，用以下终端命令：</strong><br>
+打开 <code>&quot;终端&quot;</code> app，输入以下命令：</p>
+<p>MasterGo 客户端与浏览器缓存一键清理：</p>
+<pre><code>rm -rf ~/Library/Application\ Support/master-desktop /Library/Application\ Support/MasterGo/cacheFonts /Library/Application\ Support/MasterGo/fontsInfo /Library/Application\ Support/MasterGo/pathSvg
+</code></pre>
+<p>注意：如果遇到权限问题，可以在命令前加上 sudo 提权：</p>
+<pre><code>sudo rm -rf ~/Library/Application\ Support/master-desktop /Library/Application\ Support/MasterGo/cacheFonts /Library/Application\ Support/MasterGo/fontsInfo /Library/Application\ Support/MasterGo/pathSvg
+</code></pre>
+<p>最后我同事的问题解决了，但原因却是她C盘竟然满了...    她所有文件全放C盘了 ，难怪电脑很卡，我差点没晕倒，这习惯很不好哈，提醒一下大家。</p>
+<p><a href="https://oss.boyso.com.cn/MasterGoCacheCleanupScript.zip">下载脚本</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[用最简单的方式做事]]></title>
+        <id>https://blog.boyso.com.cn/post/yong-zui-jian-dan-de-fang-shi-zuo-shi/</id>
+        <link href="https://blog.boyso.com.cn/post/yong-zui-jian-dan-de-fang-shi-zuo-shi/">
+        </link>
+        <updated>2024-03-15T08:10:32.000Z</updated>
+        <content type="html"><![CDATA[<!-- more -->
+<p>万物一生二，二生三，三生万物，归一就是一。但我们很多时间解决问题时都是反着来的。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[如何解决 MacOS “蓝牙不可用” 问题]]></title>
+        <id>https://blog.boyso.com.cn/post/ru-he-jie-jue-macos-lan-ya-bu-ke-yong-wen-ti/</id>
+        <link href="https://blog.boyso.com.cn/post/ru-he-jie-jue-macos-lan-ya-bu-ke-yong-wen-ti/">
+        </link>
+        <updated>2022-06-06T13:47:38.000Z</updated>
+        <content type="html"><![CDATA[<!-- more -->
+<p>😀</p>
+<!-- more -->
+<p>执行如下命令，而后等一会，等蓝牙图标恢复正常了再手动链接目标硬件就能够了。<br>
+sudo pkill bluetoothd  &amp;&amp;  sudo rm /Library/Preferences/com.apple.Bluetooth.plist &amp;&amp; sudo pkill bluetoothd</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[基于 Conflunce 文档无缝嵌入 Figma 稿件]]></title>
+        <id>https://blog.boyso.com.cn/post/ji-yu-conflunce-wen-dang-wu-feng-qian-ru-figma-gao-jian/</id>
+        <link href="https://blog.boyso.com.cn/post/ji-yu-conflunce-wen-dang-wu-feng-qian-ru-figma-gao-jian/">
+        </link>
+        <updated>2021-11-30T15:03:14.000Z</updated>
+        <content type="html"><![CDATA[<p><img src="https://blog.boyso.com.cn/post-images/1737114427943.png" alt="" loading="lazy">产研团队内部采用的是 Atlassian 家的 Confluence 作为技术研发、产品PRD，当然还有我们的UED团队。之前用过他家的 Jira，这套系统个人不太感冒，虽然貌似很强大...<br>
+Anywhy, 起因是我刚接管UED团队时，发现内部的研发流程里，产品PRD与UED方案是分离的，UI 放在蓝湖，从上游产品部门到下游研发中，尤其前端打开太多文件和文档来熟悉一个需求很难受，出于内部协作效率工程的要求，我开始找寻更好的解决方案。</p>
+<h3 id="要求">要求</h3>
+<p>产品下发需求时，PRD应能完整体现整个需求的方方面面，功能架构、产品需求背景、交互文档、UI稿等。</p>
+<p><a href="https://blog.boyso.com.cn/post/chan-pin-xu-qiu-prd-yi-ti-hua/">产品需求PRD一体化</a></p>
+<h3 id="方案思路">方案思路</h3>
+<p>通过 Confluence 文档编辑器里的插入宏方式，把Fimga的Embed code 通过 iframe 的方式，把Figma 嵌入到文档中。</p>
+<p>使用 Embed code ，复制 iframe 代码<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113333726.png" alt="" loading="lazy"></p>
+<p>在Confluence 文档要编辑器里点击 +号，打开菜单，选择 其他宏，搜索 HTML 宏，并 插入。<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113338554.png" alt="" loading="lazy"></p>
+<p>使用HTML宏，支持嵌入 iframe 代码。<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113342912.png" alt="" loading="lazy"></p>
+<p>然后把复制过来的代码塞进 HTML 这个编辑器里即可。<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113347236.png" alt="" loading="lazy"></p>
+<p>最新方案<br>
+管理员可以通过添加 Figma 应用，可以直接使用。<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113352771.png" alt="" loading="lazy"><br>
+然后在文档里通过编辑器更多功能 +号  或者 文档内 『/』 就能添加 Figma 的Block（新版Confluence 学习了Notion的 Block 的方式）<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113357654.png" alt="" loading="lazy"><br>
+添加 Figma 的文档链接即可。<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113364228.png" alt="" loading="lazy"></p>
+<p><strong>数据安全问题</strong><br>
+由于使用的都是 iframe 的嵌入方式，刚引出来跨域登录权限的问题，在Figma文档里分享时，如果使用 <strong>Anyone with the link</strong> can view，则会有有安全问题，相当于把文档暴露在全网了。<br>
+<img src="https://blog.boyso.com.cn/post-images/1737113380046.png" alt="" loading="lazy"><br>
+所以我们使用的是非团队成员无法访问的权限(我们是团队专业版)，则其实文档里的文档窗口也就是看不到的... 需要单独处理才行，这体验就很矛盾了....</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[《微信背后的产品观》-设计者的审美观]]></title>
+        <id>https://blog.boyso.com.cn/post/lesslesswei-xin-bei-hou-de-chan-pin-guan-greatergreater-she-ji-zhe-de-shen-mei-guan/</id>
+        <link href="https://blog.boyso.com.cn/post/lesslesswei-xin-bei-hou-de-chan-pin-guan-greatergreater-she-ji-zhe-de-shen-mei-guan/">
+        </link>
+        <updated>2021-09-21T14:22:52.000Z</updated>
+        <content type="html"><![CDATA[<p>最近看了张小龙有《微信背后的产品观》，有些感悟。我更愿意叫它小册子，不是书，书显得过于缺少功能性。小册子东西不多，但我持续看了一个月，除了精力之外，更多是觉得要慢慢读，如果我是猫，就会像刨猫粮一样扒拉把它藏起来。</p>
+<p>发散一下思考，设计者的审美观，为什么是设计者，而不是设计师，也是为了尽力抛开『职业』而谈，当然其实就是讲身为设计者，UE/UI 进入一家企业后，太在意自己的设计在这里是否能得到赏识的问题。</p>
+<p>『保留自己的性格与品味，尊重自己的饭碗。』<br>
+我用第一人称的角度来尝试宣讲入职宣讲吧，就直白些了。<br>
+『设计既然加入这个公司，我不会要求你认可我的审美，我的品味（虽然面试时已有切磋），同样我也不会强加于不符合公司企业文化，行业特性，产品特征的风格与品味，我会认真深入的去学习与理解并熟悉运用它们的巧妙之处，这是设计师应该有的能力。我相信公司也会尽力支持设计师的创造性与发散思维。』</p>
+<p>欢迎一起聊聊。</p>
+<p>未完，待更。</p>
+<ul>
+<li>2021年9月21日 中秋</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Figma 网络加载慢优化方案]]></title>
+        <id>https://blog.boyso.com.cn/post/figma-jia-zai-bu-liao-de-jie-jue-fang-an/</id>
+        <link href="https://blog.boyso.com.cn/post/figma-jia-zai-bu-liao-de-jie-jue-fang-an/">
+        </link>
+        <updated>2021-08-25T01:29:43.000Z</updated>
+        <content type="html"><![CDATA[<p>自七月起，Figma 的网络加载就像抽风一样，经常无法加载打开。马上向官方投诉，隔三差五各群里就会吐槽这事。而且部分人通过翻墙能解决，但不是所有人都有梯子。</p>
+<p>三种解决方案<br>
+方法一：<br>
+改DNS，把主DNS 改成 4.2.2.1 后，如果是用浏览器的，重启浏览器，或者重启Figma 客户端，即可飞速加载。（最好重连网络一次，因为有时系统网络还没马上切换成功。）<br>
+方法二：<br>
+通过改本地 Hosts 的方式，强制系统优先访问 Figma 离我最短，最快的服务器IP。<br>
+这个可以参考四喜茶茶 的 Moonvy 团队写的网络推荐工具。<br>
+<a href="https://zhuanlan.zhihu.com/p/402819516?utm_source=wechat_timeline&amp;utm_medium=social&amp;utm_oi=1365070314515251200&amp;utm_content=group3_article&amp;utm_campaign=shareopn&amp;s_r=0">《🐌⚡️ Figma 提升访问速度》</a><br>
+Moonvy 群里 四喜茶茶 听到我们为加载慢这事苦不堪言后，马上收集大家的经验与方法，第二天就把工具与方法分享出来了，而且还迭代了两个版本。并不是你没能力，而是总有人很努力！<br>
+方法三：<br>
+开翻墙吧，国内有些地区的网线运营商对过外数据路由的确比较窄或者硬件不行，导致上面两种方法都不明显，</p>
+<p>经过这事也让我再次产生了要给团队换其他设计工具或者换回sketch的想法，找在蓝湖的污大 utom ，求Mastergo 快点起来哇。同时又下载了 Mastergo 用了下，不得不还是陷入了深思... 的确像 utom 提的，并不是表现像，底层的功底真不是马上见效的，不仅国内图形设计类工具的技术难，肯定也有商业氛围难活的原因。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[UED团队开启 Figma 专业版的经验]]></title>
+        <id>https://blog.boyso.com.cn/post/ued-tuan-dui-kai-qi-figma-zhuan-ye-ban-de-jing-yan/</id>
+        <link href="https://blog.boyso.com.cn/post/ued-tuan-dui-kai-qi-figma-zhuan-ye-ban-de-jing-yan/">
+        </link>
+        <updated>2021-05-11T14:52:53.000Z</updated>
+        <content type="html"><![CDATA[<p>UED 团队决定正式启用 Figma 全量协同设计，你懂的，要氪金了。<br>
+算了笔账，原来 sketch的正版费用是一年700RMB/年/人，蓝湖50人团队将近9000RMB。现在 Figma 专业版4个设计席位共花费567刀,约合3718元。<br>
+性价比还是很划算的了。<br>
+<img src="http://img.1bz.net/uPic/MTsHec.png" alt="MTsHec" loading="lazy"></p>
+<p><strong>Figma 版本</strong><br>
+免费版、专业版、组织版三大版本。<br>
+2021年4月24日前都还能放在草稿里无限拉编辑权限，但24号后这个羊毛之洞就被美其名曰用户喜好而关上了，只有放到团队版本里才能拉人编辑，但 Team 里仅限一个 Project 和1个 files。</p>
+<p><strong>合同与发票</strong><br>
+合同这事的确麻烦，主要只是服务订阅，不会有合同的，只能收到发票，而且还是国外的发票 invoice ，我想这跟国内还没有代理也有关系，而也由于无代理商，还会带来另一个问题，国外发票在国内很多公司财务都不认的... 为此我也跟财务负责人商量过后，最后才让我走报销方式，贴上发票和支出凭证之类的。</p>
+<p><strong>注意小坑</strong><br>
+当我们开心使用了两个月后，突然收到信用卡又被扣了百几块钱的通知， 提示我们增加了6席位，按月扣费。我马上去查看团队列表，惊讶的发现是由于我设计师分享出去的文档，误开了编辑权限，于是这些用户就被打上了『试用』标签，超一个月后，就找我买单了。这... 大半夜的，让我相当无语，马上操起我广式土味英语在灯下向Figma官方写下了『5555 我错了，求退款』的泪书...<br>
+然后，秉着让子弹飞一会的心态，我下半夜又起来看了下邮箱，果然收到了官方的信，大致就是说，小老弟见你初犯，这次就不讹你了，给你退回钱 ：）<br>
+果然我就带着像农民干完活，释然一身的爽睡着了。</p>
+<p>划小黑板重点：<br>
+如果你是管理员，如果不是钱多，就别给其他编辑席位的人，管理员『admin』的权限，给回个编辑者权限就行了，要是给了 『admin』 权限就相当于帮你花钱出去了....</p>
+<p>希望这点小经验能帮助到大家吧，有不懂的也可以找我咨询。😀</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[缺少SSL，导致七牛图床无法显示]]></title>
+        <id>https://blog.boyso.com.cn/post/que-shao-ssldao-zhi-qi-niu-tu-chuang-wu-fa-xian-shi/</id>
+        <link href="https://blog.boyso.com.cn/post/que-shao-ssldao-zhi-qi-niu-tu-chuang-wu-fa-xian-shi/">
+        </link>
+        <updated>2021-02-19T17:05:07.000Z</updated>
+        <content type="html"><![CDATA[<p>很长一段时间，我的图床一直是残废的状态，也曾多次找寻问题也无果，今天请教了Design+code 群里，遇到了白宦成老师的指导，一下就找到问题，药到病除！</p>
+<h3 id="环境说明">环境说明</h3>
+<p>我 blog 是托管在 github 上，使用 Gride 本地写完就同步上去。<br>
+而图床用的就七牛（免费、香），配合uPic 上传。<br>
+传送门<br>
+<a href="https://blog.boyso.com.cn/post/write%20blog%20by%20uPic%20and%20markdown/">《想写blog，所以需要一个顺手的图床-uPic/iPic + 七牛云》</a></p>
+<h3 id="问题">问题</h3>
+<p>上传到图床上的图片URL 在浏览器里直接能访问，但只要嵌入到 img 标签里就无法显示，我用了排除法，在其他在线编辑器上也无法显示，说明问题不一定出在我博客配置上。网上也找不到类似的问题（想想应该是我搜索的方向错了😑）<br>
+<img src="http://img.1bz.net/uPic/WechatIMG10064.png" alt="WechatIMG10064" loading="lazy"></p>
+<h3 id="解决">解决</h3>
+<p>估计是我之前不小心给 blog.boyso.com.cn 开了免费的SSL证书，而图床的 img.1bz.net 是没有 SSL 证书的，白宦成老师指出『https 页面无法嵌入不安全的资源（没有 https 的资源）』，一下点醒憨憨的我，</p>
+<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/WechatIMG10072.png" alt="WechatIMG10072" loading="lazy"></figure>
+<p>那就很简单了，我看到七牛里就很良心的可以自动申请免费的 SSL证书，而且是一键的，太棒了。<br>
+<img src="http://img.1bz.net/uPic/WechatIMG10106.png" alt="WechatIMG10106" loading="lazy"></p>
+<p>不过就是要每年续费或者重新申请一次 SSL 证书，毕竟... Free 哈😏<br>
+配置完后，再看 blog 文件里的图片全正常了。👏👏<br>
+<img src="http://img.1bz.net/uPic/WechatIMG10174.jpeg" alt="WechatIMG10174" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Swift学习- Xcode 运行就卡死原因]]></title>
+        <id>https://blog.boyso.com.cn/post/swift-xue-xi-xcode-yun-xing-jiu-qia-si-yuan-yin/</id>
+        <link href="https://blog.boyso.com.cn/post/swift-xue-xi-xcode-yun-xing-jiu-qia-si-yuan-yin/">
+        </link>
+        <updated>2021-02-19T11:46:47.000Z</updated>
+        <content type="html"><![CDATA[<p><font color=gray size=2><em>近期学习 Swift 语言，争取在2021年能上线一款产品就是胜利✌</em></font></p>
+<h3 id="问题">问题</h3>
+<p>新建一个新 playground，使用的是 iOS 的 Bank 空白页。<br>
+写了几句基础的数据类型进行，运行打印，一直卡死很慢...<br>
+<img src="http://img.1bz.net/uPic/Xcode219.png" alt="Xcode219" loading="lazy"></p>
+<h3 id="解决">解决</h3>
+<p>差点入门就放弃，网上浪了一下，把 playground 右面侧栏里的 platform 的 iOS 改成 macOS 就可以了。<br>
+<img src="http://img.1bz.net/uPic/lDTVSy.png" alt="lDTVSy" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Figma 团队协同经验]]></title>
+        <id>https://blog.boyso.com.cn/post/figma-tuan-dui-xie-tong-jing-yan/</id>
+        <link href="https://blog.boyso.com.cn/post/figma-tuan-dui-xie-tong-jing-yan/">
+        </link>
+        <updated>2021-01-21T03:37:45.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="产品与交互文档流程">产品与交互文档流程</h2>
+<p>产品需求文档+交互文档+UI稿，三份文档，一般会在Tapd、Teambition、禅道这类协同研发系统里流转。、对开发而言多了，一个需求就打开几个页面，就会产生不必要的注意力的断点。<br>
+如果产品需求，一页过，交互与UI都不需要打开新页面，那就可以减少开发打开的页面数了。</p>
+<h3 id="figma-对外嵌入代码">Figma 对外嵌入代码。</h3>
+<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FV5HrpX3u2lc0ye3wig4vUoJw%2FWhat-the-FK-Figma%3Fnode-id%3D0%253A1" allowfullscreen></iframe>]]></content>
+    </entry>
+</feed>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>2020官网更新日记记录 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1737360106146">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="1-20日
+
+更新 侧栏菜单样式
+更新 首页客户案例的CSS 结构，之前的结构太松散。
+更新 文章页 的其他文章 的CSS样式
+更新 文章页 正文底部宽松度
+重新把客户列表从图片写成 Html 结构，同时针对 H5 调整效果
+
+心得：到目前..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1737360106146" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      BOYSO | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">2020官网更新日记记录</h2>
+            <div class="post-date">2020-01-20</div>
+            
+            <div class="post-content" v-pre>
+              <h3 id="1-20日">1-20日</h3>
+<ul>
+<li>更新 侧栏菜单样式</li>
+<li>更新 首页客户案例的CSS 结构，之前的结构太松散。</li>
+<li>更新 文章页 的其他文章 的CSS样式</li>
+<li>更新 文章页 正文底部宽松度</li>
+<li>重新把客户列表从图片写成 Html 结构，同时针对 H5 调整效果</li>
+</ul>
+<p>心得：到目前为止，已经大致掌握了 Media 的使用。对 Hexo 的模板基本可以搞出来了，就还是觉得HEXO的模板分离不是很友好，太散了。（好奇一般前端工程师是先写好静态模板后，再移植到 Hexo 里的吧，Swig 引擎还没搞熟。</p>
+<h3 id="1-19日">1-19日</h3>
+<p>今天生日，奔波广州-中山两地跑，以至于20日凌晨才开车加到广州，真是要命。</p>
+<h3 id="1-18日">1-18日</h3>
+<ul>
+<li>调整了页面的样式</li>
+</ul>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.boyso.com.cn/post/write blog by uPic and markdown/">
+                  <h3 class="post-title">
+                    想写blog，所以需要一个顺手的图床-uPic/iPic + 七牛云
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>缺少SSL，导致七牛图床无法显示 | BOYSO</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://blog.boyso.com.cn/favicon.ico?v=1737360106146">
+<link rel="stylesheet" href="https://blog.boyso.com.cn/styles/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+
+    <meta name="description" content="很长一段时间，我的图床一直是残废的状态，也曾多次找寻问题也无果，今天请教了Design+code 群里，遇到了白宦成老师的指导，一下就找到问题，药到病除！
+环境说明
+我 blog 是托管在 github 上，使用 Gride 本地写完就同步..." />
+    <meta name="keywords" content="" />
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://blog.boyso.com.cn">
+        <img src="https://blog.boyso.com.cn/images/avatar.png?v=1737360106146" class="site-logo">
+        <h1 class="site-title">BOYSO</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      Full Stack，Product design & Thinking
+    </div>
+    <div class="site-footer">
+      BOYSO | <a class="rss" href="https://blog.boyso.com.cn/atom.xml" target="_blank">RSS</a>
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">缺少SSL，导致七牛图床无法显示</h2>
+            <div class="post-date">2021-02-20</div>
+            
+            <div class="post-content" v-pre>
+              <p>很长一段时间，我的图床一直是残废的状态，也曾多次找寻问题也无果，今天请教了Design+code 群里，遇到了白宦成老师的指导，一下就找到问题，药到病除！</p>
+<h3 id="环境说明">环境说明</h3>
+<p>我 blog 是托管在 github 上，使用 Gride 本地写完就同步上去。<br>
+而图床用的就七牛（免费、香），配合uPic 上传。<br>
+传送门<br>
+<a href="https://blog.boyso.com.cn/post/write%20blog%20by%20uPic%20and%20markdown/">《想写blog，所以需要一个顺手的图床-uPic/iPic + 七牛云》</a></p>
+<h3 id="问题">问题</h3>
+<p>上传到图床上的图片URL 在浏览器里直接能访问，但只要嵌入到 img 标签里就无法显示，我用了排除法，在其他在线编辑器上也无法显示，说明问题不一定出在我博客配置上。网上也找不到类似的问题（想想应该是我搜索的方向错了😑）<br>
+<img src="http://img.1bz.net/uPic/WechatIMG10064.png" alt="WechatIMG10064" loading="lazy"></p>
+<h3 id="解决">解决</h3>
+<p>估计是我之前不小心给 blog.boyso.com.cn 开了免费的SSL证书，而图床的 img.1bz.net 是没有 SSL 证书的，白宦成老师指出『https 页面无法嵌入不安全的资源（没有 https 的资源）』，一下点醒憨憨的我，</p>
+<figure data-type="image" tabindex="1"><img src="http://img.1bz.net/uPic/WechatIMG10072.png" alt="WechatIMG10072" loading="lazy"></figure>
+<p>那就很简单了，我看到七牛里就很良心的可以自动申请免费的 SSL证书，而且是一键的，太棒了。<br>
+<img src="http://img.1bz.net/uPic/WechatIMG10106.png" alt="WechatIMG10106" loading="lazy"></p>
+<p>不过就是要每年续费或者重新申请一次 SSL 证书，毕竟... Free 哈😏<br>
+配置完后，再看 blog 文件里的图片全正常了。👏👏<br>
+<img src="http://img.1bz.net/uPic/WechatIMG10174.jpeg" alt="WechatIMG10174" loading="lazy"></p>
+
+            </div>
+            
+            
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://blog.boyso.com.cn/post/swift-xue-xi-xcode-yun-xing-jiu-qia-si-yuan-yin/">
+                  <h3 class="post-title">
+                    Swift学习- Xcode 运行就卡死原因
+                  </h3>
+                </a>
+              </div>
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script type="application/javascript">
+
+AOS.init();
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+
+
+  </body>
+</html>
